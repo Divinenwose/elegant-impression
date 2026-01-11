@@ -1,0 +1,65 @@
+.navbar-container {
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-right: 80px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    background: #1A1A1A;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.2px;
+    text-align: center;
+    vertical-align: middle;
+    color: #EDEDED;
+}
+
+.nav-links li a:hover {
+    color: #D4AF37;
+}
+
+.nav-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-whatsapp,
+.nav-books {
+    width: 44px;
+    height: 44px;
+    gap: 10px;
+    border-radius: 300px;
+}
+
+.nav-whatsapp img,
+.nav-books img {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-whatsapp {
+    background: #D4AF37;
+    padding: 12px;
+}
+
+.nav-books {
+    background: #EDEDED;
+    padding: 12px;
+}
