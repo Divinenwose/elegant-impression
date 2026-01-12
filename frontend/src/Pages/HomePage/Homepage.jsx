@@ -23,7 +23,7 @@ import Footer from "../../components/Footer/Footer.jsx";
 import Bookings from "../../components/Bookings/Bookings.jsx";
 import head from "../../assets/heads.png";
 
-const HomePage = () => {
+const HomePage = ({ setCartCount }) => {
     return (
         <section className="home">
             <div className="hero-container">
@@ -171,7 +171,12 @@ const HomePage = () => {
                             <div className="shop-price">
                                 <p>£7.99</p>
                                 <div className="price-img">
-                                    <img src={Bag} alt="" />
+                                    <img
+                                        src={Bag}
+                                        alt="add to cart"
+                                        className="bag-btn"
+                                        onClick={() => setCartCount(prev => prev + 1)}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -186,7 +191,12 @@ const HomePage = () => {
                             <div className="shop-price">
                                 <p>£24.99</p>
                                 <div className="price-img">
-                                    <img src={Bag} alt="" />
+                                    <img
+                                        src={Bag}
+                                        alt="add to cart"
+                                        className="bag-btn"
+                                        onClick={() => setCartCount(prev => prev + 1)}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -201,7 +211,12 @@ const HomePage = () => {
                             <div className="shop-price">
                                 <p>£7.99</p>
                                 <div className="price-img">
-                                    <img src={Bag} alt="" />
+                                    <img
+                                        src={Bag}
+                                        alt="add to cart"
+                                        className="bag-btn"
+                                        onClick={() => setCartCount(prev => prev + 1)}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -216,7 +231,12 @@ const HomePage = () => {
                             <div className="shop-price">
                                 <p>£18.00</p>
                                 <div className="price-img">
-                                    <img src={Bag} alt="" />
+                                    <img
+                                        src={Bag}
+                                        alt="add to cart"
+                                        className="bag-btn"
+                                        onClick={() => setCartCount(prev => prev + 1)}
+                                    />
                                 </div>
                             </div>
                         </div>

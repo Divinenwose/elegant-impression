@@ -303,6 +303,18 @@
     color: #D4AF37;
 }
 
+.bag-btn {
+    width: 26px;
+    height: auto;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+
+.bag-btn:active {
+    transform: scale(0.9);
+}
+
+
 .why {
     height: 494px;
     background: #0E0E0E;

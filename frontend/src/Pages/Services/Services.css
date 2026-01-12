@@ -1,0 +1,248 @@
+.services-container {
+    height: 493px;
+    background: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-text {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: center;
+}
+
+.services-text h2 {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #EDEDED;
+}
+
+.services-text p {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #B3B3B3;
+    width: 811px;
+}
+
+.services-section {
+    height: 2137px;
+    background: #0E0E0E;
+    padding-top: 20px;
+    padding-right: 80px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+}
+
+.service-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.service-filters button {
+    width: 121px;
+    height: 48px;
+    border-radius: 40px;
+    border-width: 1px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    border: 1px solid #D4AF37;
+    background: transparent;
+    font-family: "Inter";
+    font-weight: 600;
+    font-style: Bold;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.service-filters button.active-filter {
+    background: #D4AF37;
+}
+
+.service-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+}
+
+.service-cards {
+    width: 380px;
+    height: 605px;
+    border-radius: 14px;
+    background: #1A1A1A;
+}
+
+.service-cards .images {
+    width: 380px;
+}
+
+.service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.service-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 333px;
+    height: 53px;
+    border-top-width: 1px;
+    border-top: 1px solid #F3F4F6;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.dur {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-info h3 {
+    font-family: "Inter";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #EDEDED;
+}
+
+.duration {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #B3B3B3;
+}
+
+.content {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #B3B3B3;
+}
+
+.price {
+    font-family: "Inter";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #D4AF37;
+}
+
+.book-btn {
+    width: 104px;
+    height: 36px;
+    border-radius: 9999px;
+    border-width: 2px;
+    background: #1A1A1A;
+    border: 2px solid #D4AF37;
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #D4AF37;
+    cursor: pointer;
+}
+
+.ready {
+    background: #0E0E0E;
+    height: 408px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ready-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: center;
+}
+
+.ready-container h2 {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #EDEDED;
+}
+
+.ready-container p {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    width: 756px;
+    color: #B3B3B3;
+}
+
+.ready-btns {
+    width: 210px;
+    height: 48px;
+    border-radius: 40px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    background: #D4AF37;
+    margin-inline: auto;
+    margin-top: 20px;
+}
+
+.ready-btn {
+    text-decoration: none;
+    font-family: "Outfit";
+    font-weight: 600;
+    font-style:Bold;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+}

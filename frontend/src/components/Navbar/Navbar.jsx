@@ -5,7 +5,7 @@ import Logo from "../../assets/logo.png";
 import Whatsapp from "../../assets/whatsapp.png";
 import Bag from "../../assets/bag.png";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
     return (
         <nav className="navbar-container">
             <div className="logo-container">
@@ -43,12 +43,14 @@ const Navbar = () => {
                 </li>
             </ul>
             <div className="nav-contacts">
-                <a className="nav-whatsapp" href="">
+                <a className="nav-whatsapp" href="https://wa.me/447831331434" target="_blank" rel="noopener noreferrer">
                     <img src={Whatsapp} alt="" />
                 </a>
-                <a className="nav-books" href="">
-                    <img src={Bag} alt="" />
-                </a>
+                <div className="cart-wrapper">
+                    <img src={Bag} alt="cart icon" className="cart-icon" />
+                    <span className="cart-badge">{cartCount}</span>
+                </div>
+
             </div>
         </nav>
     );

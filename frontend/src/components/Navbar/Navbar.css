@@ -8,6 +8,11 @@
     padding-bottom: 20px;
     padding-left: 80px;
     background: #1A1A1A;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 .nav-links {
@@ -33,7 +38,7 @@
     color: #D4AF37;
 }
 
-.nav-links li a.active{
+.nav-links li a.active {
     color: #D4AF37;
 }
 
@@ -43,8 +48,7 @@
     gap: 20px;
 }
 
-.nav-whatsapp,
-.nav-books {
+.nav-whatsapp {
     width: 44px;
     height: 44px;
     gap: 10px;
@@ -52,17 +56,43 @@
 }
 
 .nav-whatsapp img,
-.nav-books img {
+.cart-wrapper img {
     width: 20px;
     height: 20px;
 }
 
-.nav-whatsapp {
-    background: #D4AF37;
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
+    background: #EDEDED;
     padding: 12px;
+    width: 44px;
+    height: 44px;
+    gap: 10px;
+    border-radius: 300px;
 }
 
-.nav-books {
-    background: #EDEDED;
+
+.cart-icon {
+    width: 28px;
+    height: auto;
+    cursor: pointer;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 2px;
+    left: 20px;
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.nav-whatsapp {
+    background: #D4AF37;
     padding: 12px;
 }

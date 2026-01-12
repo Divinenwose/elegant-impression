@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import FLogo from "../../assets/logo.png"
 import Instagram from "../../assets/instagram.png";
@@ -12,7 +13,7 @@ import phone from "../../assets/phone.png";
 const year = new Date().getFullYear();
 
 const Footer = () => {
-    return(
+    return (
         <footer className="footer-container">
             <div className="footer-wrapper">
                 <div className="footer-logo-container">
@@ -24,7 +25,7 @@ const Footer = () => {
                     </div>
                     <div className="footer-icons">
                         <div className="instagram">
-                            <a href=""><img src={Instagram} alt="" /></a>
+                            <a href="https://www.instagram.com/just_elegant_hair?igsh=eXlzMTkwbWl6M2c3" target="_blank" rel="noopener noreferrer"><img src={Instagram} alt="" /></a>
                         </div>
                         <div className="facebook">
                             <a href=""><img src={Facebook} alt="" /></a>
@@ -33,7 +34,7 @@ const Footer = () => {
                             <a href=""><img src={Chat} alt="" /></a>
                         </div>
                         <div className="tiktok">
-                            <a href=""><img src={TikTok} alt="" /></a>
+                            <a href="https://www.tiktok.com/@just_elegant_impressions?_r=1&_t=ZS-932seLZKDSc" target="_blank" rel="noopener noreferrer"><img src={TikTok} alt="" /></a>
                         </div>
                     </div>
                 </div>
@@ -42,10 +43,10 @@ const Footer = () => {
                         <h2>Explore</h2>
                     </div>
                     <ul className="footer-links">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Shop Products</a></li>
-                        <li><a href="">About Us</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/services">Services</Link></li>
+                        <li><Link to="/shop">Shop Products</Link></li>
+                        <li><Link to="/about">About Us</Link></li>
                     </ul>
                 </div>
                 <div className="footer-service-container">
