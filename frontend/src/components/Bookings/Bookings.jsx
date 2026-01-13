@@ -15,28 +15,54 @@ const Bookings = () => {
                         <h4>Send Us a Message</h4>
                         <p>Have questions or need assistance? Our team is always ready to guide you on your journey.</p>
                     </div>
-                    <form action="mailto:yourEmail@example.com" method="POST" enctype="text/plain">
-                        <div className="full-name">
-                            <label htmlFor="Full Name">Full Name</label>
-                            <input type="text" name="Full Name" placeholder="Your full name" required></input>
+                    <form action="mailto:Justelegantimpressions@gmail.com" method="POST" enctype="text/plain">
+                        <div class="full-name">
+                            <label for="fullName">Full Name</label>
+                            <input type="text"
+                                id="fullName"
+                                name="Full Name"
+                                placeholder="Your full name"
+                                pattern="[A-Za-z\s]+"
+                                title="Full name must contain only letters and spaces"
+                                required />
                         </div>
-                        <div className="email">
-                            <label htmlFor="Full Name">Email</label>
-                            <input type="text" name="Email" placeholder="yourwinzy@gmail.com" required></input>
+                        <div class="email">
+                            <label for="email">Email</label>
+                            <input type="email"
+                                id="email"
+                                name="Email"
+                                placeholder="yourwinzy@gmail.com"
+                                required />
                         </div>
-                        <div className="message-telephone">
-                            <label htmlFor="Phone">Phone Number</label>
-                            <input type="tel" name="Phone" placeholder="Phone Number" required></input>
+                        <div class="message-telephone">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel"
+                                id="phone"
+                                name="Phone"
+                                placeholder="Phone Number"
+                                pattern="[0-9]{10,15}"
+                                title="Enter a valid phone number with 10–15 digits"
+                                required />
                         </div>
-                        <div className="desired">
-                            <label htmlFor="Desired Service">Desired Service</label>
-                            <input type="text" name="Desired Service" placeholder="e.g Braids, Weeve, etc" required></input>
+                        <div class="desired">
+                            <label for="desiredService">Desired Service</label>
+                            <input type="text"
+                                id="desiredService"
+                                name="Desired Service"
+                                placeholder="e.g Braids, Weave, etc"
+                                pattern="[A-Za-z\s]+"
+                                title="Service must contain only letters and spaces"
+                                required />
                         </div>
-                        <div className="text-mt">
-                            <label htmlFor="Message">Message</label>
-                            <textarea name="Message" placeholder="Your message" rows="4"></textarea>
+                        <div class="text-mt">
+                            <label for="message">Message</label>
+                            <textarea id="message"
+                                name="Message"
+                                placeholder="Your message"
+                                rows="4"
+                                required></textarea>
                         </div>
-                        <div className="sumit-btn">
+                        <div class="submit-btn">
                             <button type="submit">Send Message</button>
                         </div>
                     </form>
