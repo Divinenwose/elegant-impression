@@ -6,6 +6,7 @@ import Whatsapp from "../../assets/whatsapp.png";
 import Bag from "../../assets/bag.png";
 import CartModal from "../CartModal/CartModal.jsx";
 import menu from "../../assets/menu.png";
+import Close from "../../assets/closebtn.png";
 
 const Navbar = ({ cartCount }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -47,10 +48,10 @@ const Navbar = ({ cartCount }) => {
                     />
                 </div>
             </nav>
-
-            {/* Mobile Drawer */}
             <div className={`mobile-drawer ${isMenuOpen ? "open" : ""}`}>
-                <button className="drawer-close" onClick={() => setIsMenuOpen(false)}>✕</button>
+                <button className="drawer-close" onClick={() => setIsMenuOpen(false)}>
+                     <img src={Close} alt="" />
+                </button>
 
                 <ul className="drawer-links">
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/" end>Home</NavLink></li>
@@ -59,20 +60,6 @@ const Navbar = ({ cartCount }) => {
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/products">Shop</NavLink></li>
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/contact">Contact</NavLink></li>
                 </ul>
-
-                <div className="drawer-footer">
-                    <a
-                        href="https://wa.me/447831331434"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img src={Whatsapp} alt="WhatsApp" />
-                    </a>
-                    <div className="cart-wrapper" onClick={() => { setIsMenuOpen(false); setIsCartOpen(true); }}>
-                        <img src={Bag} alt="Cart" />
-                        <span className="cart-badge">{cartCount}</span>
-                    </div>
-                </div>
             </div>
 
             {isCartOpen && <CartModal onClose={() => setIsCartOpen(false)} cartCount={cartCount} />}

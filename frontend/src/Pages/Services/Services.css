@@ -250,9 +250,489 @@
     text-decoration: none;
     font-family: "Outfit";
     font-weight: 600;
-    font-style:Bold;
+    font-style: Bold;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
     color: #fff;
+}
+
+@media screen and (width: 430px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 6188px;
+        padding: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 402px;
+        height: 640px;
+    }
+
+    .service-cards .images {
+        width: 402px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 360px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 412px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 6188px;
+        padding: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 382px;
+        height: 640px;
+    }
+
+    .service-cards .images {
+        width: 382px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 340px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 414px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 6188px;
+        padding: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 382px;
+        height: 640px;
+    }
+
+    .service-cards .images {
+        width: 382px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 340px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 390px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 5688px;
+        padding: 20px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 580px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 320px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 375px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 5688px;
+        padding: 20px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 580px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 320px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: 5688px;
+        padding: 10px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 580px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 320px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
 }
