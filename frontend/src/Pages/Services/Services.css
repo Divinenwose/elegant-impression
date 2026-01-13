@@ -497,7 +497,7 @@
 
 }
 
-@media screen and (width: 390px) {
+@media screen and (min-width: 390px) and (max-width: 411px) {
     .services-container {
         height: 430px;
     }

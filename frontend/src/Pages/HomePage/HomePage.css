@@ -1376,7 +1376,7 @@
 
 }
 
-@media screen and (width: 390px) {
+@media screen and (min-width: 390px) and (max-width: 411px) {
     .hero-container {
         padding: 20px 20px;
         height: 700px;
