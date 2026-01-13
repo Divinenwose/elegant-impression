@@ -7,11 +7,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: '2024-12-18.acacia' as any, // Use latest or what is installed. using 'latest' type assertion if needed or just standard string.
-    // Actually, let's essentially trust the installed package version default or use a specific one if strict.
-    // Safest is often to omit apiVersion if we aren't sure, but new SDKs require it.
-    // Let's check installed version or standard practices. Usually '2024-12-18.acacia' is current.
-    // To be safe against TS errors, I'll use simple string or cast.
+    apiVersion: '2025-12-15.clover',
 });
 
 export const createOrder = async (req: Request, res: Response) => {
