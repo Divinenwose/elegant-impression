@@ -1,10 +1,7 @@
 .hero-container {
     background: url(/hero.png) no-repeat center center / cover;
     height: 800px;
-    padding-top: 20px;
-    padding-right: 80px;
-    padding-bottom: 20px;
-    padding-left: 80px;
+    padding: 20px 80px;
     position: relative;
 }
 
@@ -22,41 +19,31 @@
 }
 
 .hair {
-    width: 227px;
-    height: 38px;
+    width: fit-content;
     border-radius: 200px;
-    padding-block: 12px;
-    padding-inline: 9px;
+    padding: 12px 9px;
     background: #FFFBF2;
     font-family: "Outfit";
     font-weight: 400;
-    font-style: normal;
     font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0%;
     color: #D4AF37;
 }
 
 .hero-text-main h2 {
     font-family: "Playfair Display";
     font-weight: 600;
-    font-style: Bold;
     font-size: 64px;
     line-height: 66px;
-    letter-spacing: 0%;
     color: #EDEDED;
-    width: 680px;
+    max-width: 680px;
     margin-top: 20px;
 }
 
 .hero-text-main p {
-    width: 474px;
+    max-width: 474px;
     font-family: "Outfit";
-    font-weight: 400;
-    font-style: normal;
     font-size: 20px;
     line-height: 25px;
-    letter-spacing: 0%;
     color: #B3B3B3;
     margin-top: 20px;
 }
@@ -64,10 +51,7 @@
 .ele {
     font-family: "Playfair Display";
     font-weight: 600;
-    font-style: Bold;
     font-size: 64px;
-    line-height: 100%;
-    letter-spacing: 0%;
     color: #D4AF37;
 }
 
@@ -799,4 +783,42 @@
     line-height: 100%;
     letter-spacing: 0%;
     color: #EDEDED;
+}
+
+@media screen and (max-width: 900px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: center top;
+    }
+
+    .hero-writing {
+        margin-top: 140px;
+        text-align: center;
+        /* centers inner text */
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+        /* centers the badge */
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
 }

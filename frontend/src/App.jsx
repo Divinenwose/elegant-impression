@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage/Homepage.jsx';
 import Contact from "./Pages/Contact/Contact.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Services from "./Pages/Services/Services.jsx";
+import ProductPage from "./Pages/Product/Product.jsx";
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<HomePage setCartCount={setCartCount} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/products" element={<ProductPage />} />
       </Routes>
     </>
   );

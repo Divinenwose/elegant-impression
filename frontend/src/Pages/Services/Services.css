@@ -1,16 +1,26 @@
 .services-container {
     height: 493px;
-    background: #1A1A1A;
+    background: url(/sect-hero.png) no-repeat center center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
+
+.services-container .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #00000080;
+    z-index: 1;
+}
+
 
 .services-text {
     display: flex;
     flex-direction: column;
     gap: 22px;
     text-align: center;
+    z-index: 2;
 }
 
 .services-text h2 {

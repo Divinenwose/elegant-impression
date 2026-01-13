@@ -100,6 +100,7 @@ const Services = () => {
     return (
         <section className="services">
             <div className="services-container">
+                <div className="overlay"></div>
                 <div className="services-text">
                     <h2>Our Services</h2>
                     <p>Indulge in our premium hair services designed to enhance your natural beauty. From protective styling to luxury treatments, we offer a personalized experience for every client. </p>

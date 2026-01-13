@@ -7,7 +7,7 @@
     padding-right: 80px;
     padding-bottom: 20px;
     padding-left: 80px;
-    background: #1A1A1A;
+    background: #0E0E0E;
     position: fixed;
     top: 0;
     left: 0;
@@ -95,4 +95,74 @@
 .nav-whatsapp {
     background: #D4AF37;
     padding: 12px;
+}
+
+
+.mobile-menu-icon {
+    display: none;
+    width: 30px;
+    cursor: pointer;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -480px; 
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    border-left: 1px solid #ddd;
+}
+
+.mobile-drawer.open {
+    right: 0;
+}
+
+.drawer-close {
+    align-self: flex-end;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+}
+
+.drawer-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+@media screen and (max-width: 360px) {
+    .navbar-container{
+        padding: 15px;
+    }
+    .nav-links,
+    .nav-whatsapp,
+    .cart-wrapper {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
 }

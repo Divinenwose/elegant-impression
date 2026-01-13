@@ -249,8 +249,8 @@ const HomePage = ({ setCartCount }) => {
                         </Link>
                     </div>
                 </div>
-
             </div>
+            {/*
             <div className="testimonials">
                 <div className="testimonial-container">
                     <div className="testimonial-btn">
@@ -346,6 +346,7 @@ const HomePage = ({ setCartCount }) => {
                     </div>
                 </div>
             </div>
+            */}
             <div>
                 <Bookings />
             </div>
