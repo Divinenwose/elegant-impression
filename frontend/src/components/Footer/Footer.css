@@ -185,3 +185,17 @@
     letter-spacing: 0%;
     vertical-align: middle;
 }
+
+@media screen and (max-width:360px) {
+    .footer-container {
+        height: 1338px;
+
+    }
+
+    .footer-wrapper {
+        padding-left: 0px;
+        padding-right: 109px;
+        display: flex;
+        gap: 40px;
+    }
+}

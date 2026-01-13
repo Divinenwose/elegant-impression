@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.css';
 import Abouthero from './Image.png';
+import Footer from "../../components/Footer/Footer.jsx";
 
 const values = [
     {
@@ -103,29 +104,31 @@ function About() {
             </section>
 
             <div className="hero-section">
-      <div className="hero-content">
-        <h1 className="hero-title">
-          Ready to Experience the Difference?
-        </h1>
-        
-        <p className="hero-subtitle">
-          Visit our salon and discover why our clients trust us with their most precious
-          <br />
-          asset — <span className="highlight">their hair</span>.
-        </p>
+                <div className="hero-content">
+                    <h1 className="hero-title">
+                        Ready to Experience the Difference?
+                    </h1>
 
-        <div className="hero-buttons">
-          <button className="btn primary">
-            Book an Appointment
-          </button>
-          
-          <button className="btn secondary">
-            Shop All Products
-          </button>
-        </div>
-      </div>
-    </div>
+                    <p className="hero-subtitle">
+                        Visit our salon and discover why our clients trust us with their most precious
+                        <br />
+                        asset — <span className="highlight">their hair</span>.
+                    </p>
 
+                    <div className="hero-buttons">
+                        <button className="btn primary">
+                            Book an Appointment
+                        </button>
+
+                        <button className="btn secondary">
+                            Shop All Products
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <Footer />
+            </div>
         </section>
     );
 }

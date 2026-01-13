@@ -240,7 +240,7 @@ const HomePage = ({ setCartCount }) => {
                 </div>
                 <div className="center">
                     <div className="shop-now-btn">
-                        <Link to="/shop">
+                        <Link to="/products">
                             Shop All Products <img src={arrow} alt="" />
                         </Link>
                     </div>
