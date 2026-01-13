@@ -27,20 +27,20 @@ const Services = () => {
             img: boxbraid
         },
         {
-            title: "Medium Knotless Braids",
-            duration: "5 hours",
-            content: "Gentle braiding technique that reduces tension on the scalp for a more comfortable wear",
-            price: "$120",
-            category: "Braiding",
-            img: knotless
-        },
-        {
             title: "Crochet Braids",
             duration: "3-4 hours",
             content: "Versatile protective style with natural-looking crochet hair installations. ",
             price: "$120",
             category: "Braiding",
             img: crochet
+        },
+        {
+            title: "Medium Knotless Braids",
+            duration: "5 hours",
+            content: "Gentle braiding technique that reduces tension on the scalp for a more comfortable wear",
+            price: "$120",
+            category: "Braiding",
+            img: knotless
         },
         {
             title: "Wash & Style",
@@ -51,20 +51,20 @@ const Services = () => {
             img: wash
         },
         {
-            title: "Faux Locs",
-            duration: "4-5 hours",
-            content: "Beautiful goddess locs or bohemian locs for a stunning protective style.",
-            price: "£145",
-            category: "Braiding",
-            img: locs
-        },
-        {
             title: "Cornrows",
             duration: "2-3 hours",
             content: "Intricate cornrow patterns, including feed-in braids and tribal designs.",
             price: "£65",
             category: "Braiding",
             img: conrows
+        },
+        {
+            title: "Faux Locs",
+            duration: "4-5 hours",
+            content: "Beautiful goddess locs or bohemian locs for a stunning protective style.",
+            price: "£145",
+            category: "Braiding",
+            img: locs
         },
         {
             title: "Deep Conditioning Treatment",
@@ -142,13 +142,13 @@ const Services = () => {
 
             </div>
             <div className="ready">
-                    <div className="ready-container">
-                        <h2>Ready to Book Your Appointment?</h2>
-                        <p>Contact us via WhatsApp to schedule your service. We'll discuss your needs and find the perfect time for your appointment.</p>
-                        <div className="ready-btns">
-                            <a href="https://wa.me/447831331434" target="_blank" rel="noopener noreferrer"  className="ready-btn">Book Via Whatsapp</a>
-                        </div>
+                <div className="ready-container">
+                    <h2>Ready to Book Your Appointment?</h2>
+                    <p>Contact us via WhatsApp to schedule your service. We'll discuss your needs and find the perfect time for your appointment.</p>
+                    <div className="ready-btns">
+                        <a href="https://wa.me/447831331434" target="_blank" rel="noopener noreferrer" className="ready-btn">Book Via Whatsapp</a>
                     </div>
+                </div>
             </div>
             <div>
                 <Footer />

@@ -1,31 +1,37 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './About.css';
 import Abouthero from './Image.png';
 import Footer from "../../components/Footer/Footer.jsx";
+import about1 from "../../assets/about1.png";
+import about2 from "../../assets/about2.png";
+import about3 from "../../assets/about3.png";
+import about4 from "../../assets/about4.png";
+import about5 from "../../assets/about5.png";
+
 
 const values = [
     {
-        icon: '✂️',
+        icon: about1,
         title: 'Excellence',
         text: 'We are dedicated to high-quality service, continual growth, and attention to detail.'
     },
     {
-        icon: '🤍',
+        icon: about2,
         title: 'Integrity',
         text: 'We value honesty, professionalism, and trust in what we do always.'
     },
     {
-        icon: '🙏',
+        icon: about3,
         title: 'Faith-Led Service',
         text: 'Our faith guides how we serve, love, and care for every client.'
     },
     {
-        icon: '♡',
+        icon: about4,
         title: "Care & Compassion",
         text: "We strive to create a welcoming environment where everyone feels seen, valued, and respected."
     },
     {
-        icon: '❋',
+        icon: about5,
         title: "Confidence & Beauty",
         text: "We aim to help our clients leave feeling confident, refreshed, and reminded of their God-given beauty."
     }
@@ -47,11 +53,8 @@ function About() {
                     </p>
                 </div>
             </section>
-
-            {/* About Content Section */}
             <section className="about-section">
                 <div className="about-image"></div>
-
                 <div className="about-content">
                     <h2>More Than Just a Salon</h2>
 
@@ -70,7 +73,7 @@ function About() {
                     </p>
 
                     <div className="about-button">
-                        <button>View Our Services</button>
+                        <Link to="/services">View Our Services</Link>
                     </div>
                 </div>
             </section>
@@ -87,16 +90,16 @@ function About() {
                     </p>
                 </div>
             </section>
-
-            {/* Values Section */}
             <section className="values-section">
                 <h2 className="values-title">Our Values</h2>
 
                 <div className="values-grid">
                     {values.map((value, index) => (
                         <div className="value-card" key={index}>
-                            <div className="value-icon">{value.icon}</div>
-                            <h3>{value.title}</h3>
+                            <div className="value-icon">
+                                <img src={value.icon} alt={value.title} />
+                            </div>
+                            <h4>{value.title}</h4>
                             <p>{value.text}</p>
                         </div>
                     ))}
@@ -108,21 +111,16 @@ function About() {
                     <h1 className="hero-title">
                         Ready to Experience the Difference?
                     </h1>
-
                     <p className="hero-subtitle">
-                        Visit our salon and discover why our clients trust us with their most precious
-                        <br />
-                        asset — <span className="highlight">their hair</span>.
+                        Visit our salon and discover why our clients trust us with their most precious asset — their hair.
                     </p>
-
                     <div className="hero-buttons">
-                        <button className="btn primary">
+                        <Link to="/contact" className="btn primary">
                             Book an Appointment
-                        </button>
-
-                        <button className="btn secondary">
+                        </Link>
+                        <Link to="/products" className="btn secondary">
                             Shop All Products
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import weave from "../../assets/weave.png";
 import Footer from "../../components/Footer/Footer.jsx";
+import Purse from "../../assets/purse.png";
 import axios from "axios";
 import "./Product.css";
 
-const ProductPage = () => {
+const ProductPage = ({cartCount}) => {
     const [products, setProducts] = useState([]);
     const [category, setCategory] = useState("All Products");
     const [sort, setSort] = useState("featured");
@@ -97,16 +98,26 @@ const ProductPage = () => {
                             />
                             <div className="product-text">
                                 <p className="bundle">{product.category}</p>
-                                <h4>{product.name}</h4>
-                                <p>£{product.price.toFixed(2)}</p>
-                                <p>{product.stock} in stock</p>
-                                <button
-                                    className="add-cart-btn"
-                                    onClick={() => handleAddToCart(product)}
-                                    disabled={product.stock === 0}
-                                >
-                                    {product.stock > 0 ? "Add to Cart" : "Out of Stock"}
-                                </button>
+                                <h4 className="name">{product.name}</h4>
+                                <p className="description">{product.description}</p>
+                                <div className="point-cont">
+                                    <div className="point"></div>
+                                    <p className="stock">{product.stock} in stock</p>
+                                </div>
+                                <div className="api">
+                                    <p className="fixed">£{product.price.toFixed(2)}</p>
+                                    <button
+                                        className="product-btn"
+                                        onClick={() => handleAddToCart(product)}
+                                        disabled={product.stock === 0}
+                                    >
+                                        <img
+                                            src={Purse}
+                                            alt="Add to Cart"
+                                            className={`purse ${product.stock === 0 ? "disabled-icon" : ""}`}
+                                        />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}

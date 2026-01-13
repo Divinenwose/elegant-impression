@@ -162,6 +162,91 @@
     padding: 10px;
 }
 
+.bundle {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #6B6560;
+}
+
+.name {
+    font-family: "Inter";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #EDEDED;
+    margin-top: 20px;
+}
+
+.description {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #B3B3B3;
+    margin-top: 14px;
+}
+
+.point-cont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 13px;
+}
+
+.point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D4AF37;
+}
+
+.stock {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #D4AF37;
+}
+
+.api {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fixed {
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #D4AF37;
+}
+
+.api button {
+    width: 36px;
+    height: 36px;
+    background:#1A1A1A;
+    border: none;
+    cursor: pointer;
+}
+
 .pagination {
     margin-top: 20px;
     display: flex;
