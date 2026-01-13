@@ -56,6 +56,7 @@ const ProductPage = () => {
     return (
         <div className="shop-page">
             <div className="products">
+                <div className="overlay"></div>
                 <div className="product-container">
                     <h2>Shop</h2>
                     <p>

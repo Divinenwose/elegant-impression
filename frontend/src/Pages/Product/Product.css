@@ -1,9 +1,17 @@
 .products {
     height: 493px;
-    background: #1A1A1A;
+    background: url(/shophero.png) no-repeat center center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.products .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #00000080;
+    z-index: 1;
 }
 
 .product-container {
@@ -11,6 +19,7 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    z-index: 2;
 }
 
 .product-container h2 {

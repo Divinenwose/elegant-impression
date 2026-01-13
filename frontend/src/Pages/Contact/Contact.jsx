@@ -10,6 +10,7 @@ const Contact = () => {
     return (
         <section className="contact">
             <div className="contact-container">
+                <div className="overlay"></div>
                 <div className="contact-hero">
                     <h2>Get in Touch</h2>
                     <p>We'd love to hear from you. Reach out for appointments, inquiries, <br /> or just to say hello.</p>

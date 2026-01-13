@@ -71,12 +71,11 @@ const HomePage = ({ setCartCount }) => {
                         <img src={card1} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
-                                <h4>Cornrows</h4>
+                                <h4>Braiding</h4>
                                 <p>Intricate cornrow patterns, including feed-in braids and tribal designs.</p>
                             </div>
                             <div className="price">
-                                <p>£65</p>
-                                <a href="">Learn More</a>
+                                <Link to="/services">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -84,12 +83,11 @@ const HomePage = ({ setCartCount }) => {
                         <img src={card2} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
-                                <h4>Passion Twists</h4>
+                                <h4>Wigs</h4>
                                 <p>Soft, bohemian twists for a romantic and elegant look.</p>
                             </div>
                             <div className="price">
-                                <p>£65</p>
-                                <a href="">Learn More</a>
+                                <Link to="/services">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -97,12 +95,11 @@ const HomePage = ({ setCartCount }) => {
                         <img src={card3} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
-                                <h4>Quick Weave</h4>
+                                <h4>Hair Treatment</h4>
                                 <p>Fast and flawless bonded weave application for instant transformation.</p>
                             </div>
                             <div className="price">
-                                <p>£65</p>
-                                <a href="">Learn More</a>
+                                <Link to="/services">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -110,12 +107,11 @@ const HomePage = ({ setCartCount }) => {
                         <img src={card4} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
-                                <h4>Faux Locs</h4>
+                                <h4>Styling</h4>
                                 <p>Beautiful goddess locs or bohemian locs for a stunning protective style.</p>
                             </div>
                             <div className="price">
-                                <p>£65</p>
-                                <a href="">Learn More</a>
+                                <Link to="/services">Learn More</Link>
                             </div>
                         </div>
                     </div>
@@ -154,7 +150,7 @@ const HomePage = ({ setCartCount }) => {
             </div>
             <div className="shop">
                 <div className="shop-container">
-                    <div className="shop-btn">
+                    <div className="home-shop-btn">
                         <a href="">Shop the look</a>
                     </div>
                     <h2>Featured Products</h2>
