@@ -61,6 +61,22 @@
     margin-left: 26px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .shipping-policy-container {
+        height: 1740px;
+    }
+
+    .shipping-wrapper p,
+    .partners-ul li {
+        width: 467px;
+        margin-left: 14px;
+    }
+
+    .partners h4 {
+        margin-left: 16px;
+    }
+}
+
 @media screen and (max-width:600px) {
     .shipping-policy-container {
         height: 1940px;

@@ -1,10 +1,8 @@
-/* ===== Page Wrapper ===== */
 .about-page {
   width: 100%;
   overflow-x: hidden;
 }
 
-/* ===== Hero Section ===== */
 .about-hero-section {
   background-image: url('./image.png');
   background-size: cover;
@@ -66,14 +64,11 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  height: auto;
 }
 
 
-.about-image {
-  flex: 1;
-  background-image: url('./image.png');
-  background-size: cover;
-  background-position: center;
+.about-image img {
   border-radius: 12px;
   width: 630px;
   height: 500px;
@@ -138,32 +133,6 @@
 }
 
 
-/* ===== Responsive Design ===== */
-@media (max-width: 900px) {
-  .about-section {
-    flex-direction: column;
-    padding: 60px 20px;
-  }
-
-  .about-image {
-    width: 100%;
-  }
-
-  .about-hero-title {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-hero-title {
-    font-size: 28px;
-  }
-
-  .about-hero-description {
-    font-size: 16px;
-  }
-}
-
 .mission-section {
   background-color: #121212;
   width: 100%;
@@ -209,7 +178,6 @@
 .values-section {
   background: black;
   padding: 90px 20px;
-  color: #ffffff;
   height: 770px;
 }
 
@@ -382,4 +350,282 @@
   letter-spacing: 0%;
   color: #EDEDED;
   white-space: nowrap;
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .about-section {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 60px 20px;
+  }
+
+  .about-image img {
+    margin-top: 30px;
+    width: 740px;
+  }
+
+  .about-hero-title {
+    font-size: 36px;
+  }
+
+  .values-section {
+    height: 1100px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 350px);
+  }
+
+  .value-card {
+    width: 350px;
+    height: 260px;
+  }
+
+  .value-card p {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .about-hero-section {
+    height: 446px;
+  }
+
+  .about-section {
+    padding-top: 30px;
+    padding-inline: 10px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about-image img {
+    width: 368px;
+    height: 259px;
+    margin-right: px;
+  }
+
+  .about-content h2,
+  .about-content p,
+  .about-button {
+    margin-left: 10px;
+  }
+
+  .values-section {
+    height: auto;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+  }
+
+  .values-title {
+    margin-bottom: 30px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(1, 318px);
+  }
+
+  .value-card {
+    width: 318px;
+    height: 278px;
+  }
+
+  .value-card p {
+    width: 270px;
+  }
+
+  .hero-section {
+    height: 520px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    width: 360px;
+    margin-inline: auto;
+    line-height: 35px;
+  }
+
+  .hero-subtitle {
+    width: 350px;
+    margin-inline: auto;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .btn.primary {
+    width: 165px;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 15px 0px;
+  }
+
+
+  .btn.secondary {
+    width: 165px;
+    font-size: 14px;
+    padding: 15px 0px;
+  }
+}
+
+@media screen and (width: 375px) {
+  .about-hero-section {
+    height: 446px;
+  }
+
+  .about-section {
+    padding-top: 30px;
+    padding-inline: 10px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about-image img {
+    width: 328px;
+    height: 259px;
+  }
+
+  .about-content h2,
+  .about-content p,
+  .about-button {
+    margin-left: 10px;
+  }
+
+  .values-section {
+    height: auto;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+  }
+
+  .values-title {
+    margin-bottom: 30px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(1, 318px);
+  }
+
+  .value-card {
+    width: 318px;
+    height: 278px;
+  }
+
+  .value-card p {
+    width: 270px;
+  }
+
+  .hero-section {
+    height: 520px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    width: 360px;
+    margin-inline: auto;
+    line-height: 35px;
+  }
+
+  .hero-subtitle {
+    width: 350px;
+    margin-inline: auto;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .btn.primary {
+    width: 165px;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 15px 0px;
+  }
+
+
+  .btn.secondary {
+    width: 165px;
+    font-size: 14px;
+    padding: 15px 0px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .about-hero-section {
+    height: 446px;
+  }
+
+  .about-section {
+    padding-top: 30px;
+    padding-inline: 10px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about-image img {
+    width: 328px;
+    height: 259px;
+  }
+
+  .about-content h2,
+  .about-content p,
+  .about-button {
+    margin-left: 10px;
+  }
+
+  .values-section {
+    height: auto;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+  }
+
+  .values-title {
+    margin-bottom: 30px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(1, 318px);
+  }
+
+  .value-card {
+    width: 318px;
+    height: 278px;
+  }
+
+  .value-card p {
+    width: 270px;
+  }
+
+  .hero-section {
+    height: 520px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    width: 360px;
+    margin-inline: auto;
+    line-height: 35px;
+  }
+
+  .hero-subtitle {
+    width: 350px;
+    margin-inline: auto;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .btn.primary {
+    width: 165px;
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 15px 0px;
+  }
+
+
+  .btn.secondary {
+    width: 165px;
+    font-size: 14px;
+    padding: 15px 0px;
+  }
 }

@@ -157,6 +157,21 @@
     background: #D4AF37;
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .navbar-container {
+        padding-left: 20px;
+    }
+
+    .nav-links {
+        gap: 16px;
+        margin-left: 70px;
+    }
+
+    .nav-contacts {
+        gap: 10px;
+        margin-left: 30px;
+    }
+}
 
 @media screen and (max-width: 430px) {
     .navbar-container {

@@ -257,6 +257,25 @@
     color: #fff;
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .services-text p {
+        width: 709px;
+    }
+
+    .services-section {
+        padding-inline: 20px;
+        padding-bottom: 40px;
+    }
+
+    .service-cards {
+        width: 360px;
+    }
+
+    .service-cards .images {
+        width: 360px;
+    }
+}
+
 @media screen and (width: 430px) {
     .services-container {
         height: 430px;
@@ -272,8 +291,9 @@
     }
 
     .services-section {
-        height: 6188px;
-        padding: 15px;
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 15px;
     }
 
     .service-filters {
@@ -352,8 +372,9 @@
     }
 
     .services-section {
-        height: 6188px;
-        padding: 15px;
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 15px;
     }
 
     .service-filters {
@@ -432,7 +453,8 @@
     }
 
     .services-section {
-        height: 6188px;
+        height: auto;
+        padding-bottom: 55px;
         padding: 15px;
     }
 
@@ -512,7 +534,8 @@
     }
 
     .services-section {
-        height: 5688px;
+        height: auto;
+        padding-bottom: 45px;
         padding: 20px;
     }
 
@@ -592,8 +615,9 @@
     }
 
     .services-section {
-        height: 5688px;
-        padding: 20px;
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 18px;
     }
 
     .service-filters {
@@ -672,14 +696,15 @@
     }
 
     .services-section {
-        height: 5688px;
-        padding: 10px;
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 10px;
     }
 
     .service-filters {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 7px;
         margin-top: 30px;
         justify-items: center;
     }
@@ -704,12 +729,13 @@
     }
 
     .service-cards {
-        width: 340px;
-        height: 580px;
+        width: 328px;
+        height: 557px;
+        margin-left: 7px;
     }
 
     .service-cards .images {
-        width: 340px;
+        width: 328px;
     }
 
     .service-info {
@@ -718,7 +744,7 @@
 
     .service-flex {
         padding-right: 6px;
-        width: 320px;
+        width: 300px;
     }
 
     .ready {

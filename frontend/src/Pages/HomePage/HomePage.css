@@ -786,6 +786,73 @@
     color: #EDEDED;
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .hero-container {
+        padding: 20px;
+    }
+
+    .home-services {
+        padding: 40px 20px;
+    }
+
+    .view-flex-paragraph p {
+        width: 420px;
+    }
+
+    .home-services {
+        height: 1270px;
+    }
+
+    .home-services-card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card1 {
+        width: 350px;
+        height: 480px;
+    }
+
+    .card1 img {
+        width: 350px;
+    }
+
+    .why {
+        height: 640px;
+        padding: 90px 20px;
+    }
+
+    .why-cards {
+        gap: 40px;
+    }
+
+    .shop {
+        height: 1370px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 300px);
+    }
+
+    .card2 {
+        height: 470px;
+    }
+
+    .card2 img {
+        width: 300px;
+    }
+
+    .shop-price {
+        gap: 175px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
 @media screen and (width: 430px) {
     .hero-container {
         padding: 20px 20px;
@@ -838,10 +905,10 @@
         white-space: nowrap;
     }
 
-    .head{
+    .head {
         margin-top: 50px;
         margin-left: 30px;
-    } 
+    }
 
     .head p {
         font-size: 20px;
@@ -888,7 +955,6 @@
     .why {
         height: 1130px;
         padding: 30px 20px;
-        background: #1A1A1A;
     }
 
     .why-text h2 {
@@ -906,7 +972,7 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1268px;
         padding: 20px 20px;
     }
 
@@ -925,11 +991,12 @@
 
     .card2 {
         width: 185px;
+        height: 420px;
     }
 
     .card2 img {
         width: 185px;
-        height: 320px;
+        height: 270px;
     }
 
     .shop-container {
@@ -1035,10 +1102,10 @@
         white-space: nowrap;
     }
 
-    .head{
+    .head {
         margin-top: 50px;
         margin-left: 30px;
-    } 
+    }
 
     .head p {
         font-size: 20px;
@@ -1084,8 +1151,7 @@
 
     .why {
         height: 1130px;
-        padding: 30px 20px;
-        background: #1A1A1A;
+        padding: 40px 20px;
     }
 
     .why-text h2 {
@@ -1103,7 +1169,7 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1208px;
         padding: 20px 20px;
     }
 
@@ -1122,11 +1188,12 @@
 
     .card2 {
         width: 175px;
+        height: 390px;
     }
 
     .card2 img {
         width: 175px;
-        height: 320px;
+        height: 250px;
     }
 
     .shop-container {
@@ -1232,10 +1299,10 @@
         white-space: nowrap;
     }
 
-    .head{
+    .head {
         margin-top: 50px;
         margin-left: 30px;
-    } 
+    }
 
     .head p {
         font-size: 20px;
@@ -1264,6 +1331,7 @@
 
     .home-services-card {
         flex-direction: column;
+        gap: 20px;
     }
 
     .card1 {
@@ -1282,7 +1350,6 @@
     .why {
         height: 1130px;
         padding: 30px 20px;
-        background: #1A1A1A;
     }
 
     .why-text h2 {
@@ -1300,12 +1367,12 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1268px;
         padding: 20px 20px;
     }
 
     .shop-container {
-        gap: 30px;
+        gap: 38px;
     }
 
     .shop-container h2 {
@@ -1319,11 +1386,12 @@
 
     .card2 {
         width: 185px;
+        height: 418px;
     }
 
     .card2 img {
         width: 185px;
-        height: 320px;
+        height: 280px;
     }
 
     .shop-container {
@@ -1369,6 +1437,7 @@
     .transform p {
         font-size: 16px;
         width: 360px;
+        margin-inline: auto;
     }
 
     .transfrom-btns {
@@ -1429,17 +1498,17 @@
         white-space: nowrap;
     }
 
-    .head{
+    .head {
         margin-top: 50px;
         margin-left: 30px;
-    } 
+    }
 
     .head p {
         font-size: 20px;
     }
 
     .home-services {
-        height: 2310px;
+        height: 2300px;
         padding: 20px 20px;
     }
 
@@ -1464,22 +1533,22 @@
     }
 
     .card1 {
-        width: 358px;
-        height: 490px;
+        width: 330px;
+        height: 469px;
     }
 
     .card1 img {
-        width: 358px;
+        width: 330px;
     }
 
     .card-text-container {
         gap: 22px;
+        padding: 23px;
     }
 
     .why {
         height: 1130px;
         padding: 30px 20px;
-        background: #1A1A1A;
     }
 
     .why-text h2 {
@@ -1497,7 +1566,7 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1198px;
         padding: 20px 20px;
     }
 
@@ -1515,12 +1584,13 @@
     }
 
     .card2 {
-        width: 170px;
+        width: 172px;
+        height: 380px;
     }
 
     .card2 img {
-        width: 170px;
-        height: 320px;
+        width: 172px;
+        height: 230px;
     }
 
     .shop-container {
@@ -1584,7 +1654,6 @@
     .hero-writing {
         margin-top: 140px;
         text-align: center;
-        /* centers inner text */
         width: 100%;
     }
 
@@ -1631,7 +1700,7 @@
     }
 
     .home-services {
-        height: 2200px;
+        height: 2150px;
         padding: 20px 20px;
     }
 
@@ -1657,7 +1726,7 @@
 
     .card1 {
         width: 310px;
-        height: 430px;
+        height: 450px;
     }
 
     .card1 img {
@@ -1671,7 +1740,6 @@
     .why {
         height: 1130px;
         padding: 30px 20px;
-        background: #1A1A1A;
     }
 
     .why-text h2 {
@@ -1689,7 +1757,7 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1218px;
         padding: 20px 20px;
     }
 
@@ -1707,12 +1775,13 @@
     }
 
     .card2 {
-        width: 149px;
+        width: 158px;
+        height: 400px;
     }
 
     .card2 img {
-        width: 149px;
-        height: 320px;
+        width: 158px;
+        height: 250px;
     }
 
     .shop-container {
@@ -1776,7 +1845,6 @@
     .hero-writing {
         margin-top: 140px;
         text-align: center;
-        /* centers inner text */
         width: 100%;
     }
 
@@ -1849,7 +1917,7 @@
 
     .card1 {
         width: 310px;
-        height: 430px;
+        height: 460px;
     }
 
     .card1 img {
@@ -1863,7 +1931,6 @@
     .why {
         height: 1130px;
         padding: 30px 20px;
-        background: #1A1A1A;
     }
 
     .why-text h2 {
@@ -1881,7 +1948,7 @@
     }
 
     .shop {
-        height: 1358px;
+        height: 1128px;
         padding: 20px 20px;
     }
 
@@ -1900,11 +1967,12 @@
 
     .card2 {
         width: 158px;
+        height: 350px;
     }
 
     .card2 img {
         width: 158px;
-        height: 320px;
+        height: 200px;
     }
 
     .shop-container {

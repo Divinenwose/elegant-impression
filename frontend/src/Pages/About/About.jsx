@@ -7,7 +7,7 @@ import about2 from "../../assets/about2.png";
 import about3 from "../../assets/about3.png";
 import about4 from "../../assets/about4.png";
 import about5 from "../../assets/about5.png";
-
+import abt from "../../assets/abt.png";
 
 const values = [
     {
@@ -54,7 +54,9 @@ function About() {
                 </div>
             </section>
             <section className="about-section">
-                <div className="about-image"></div>
+                <div className="about-image">
+                    <img src={abt} alt="" />
+                </div>
                 <div className="about-content">
                     <h2>More Than Just a Salon</h2>
 

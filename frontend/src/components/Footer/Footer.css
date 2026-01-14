@@ -188,6 +188,36 @@
     vertical-align: middle;
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .footer-container {
+        height: 800px;
+    }
+
+    .footer-wrapper {
+        padding-left: 50px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+    }
+
+    .footer-links-container,
+    .footer-contact-container {
+        margin-left: 55px;
+    }
+
+
+    .line {
+        width: 700px;
+        margin-left: 20px;
+    }
+
+    .reserved {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 20px;
+    }
+}
+
 @media screen and (max-width:430px) {
     .footer-container {
         height: 1338px;
