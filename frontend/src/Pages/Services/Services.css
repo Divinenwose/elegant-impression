@@ -48,11 +48,11 @@
 }
 
 .services-section {
-    height: 2137px;
+    height: auto;
     background: #0E0E0E;
     padding-top: 20px;
     padding-right: 80px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     padding-left: 80px;
 }
 
@@ -197,7 +197,7 @@
 }
 
 .ready {
-    background: #0E0E0E;
+    background: #1A1A1A;
     height: 408px;
     display: flex;
     align-items: center;

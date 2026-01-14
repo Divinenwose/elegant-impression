@@ -10,6 +10,17 @@ import conditioning from "../../assets/conditioning.png";
 import weave from "../../assets/weave.png";
 import closure from "../../assets/closure.png";
 import clock from "../../assets/clock.png";
+import lemonade from "../../assets/lemonade.png";
+import dolly from "../../assets/dolly.png";
+import fulani from "../../assets/fulani.png";
+import curly from "../../assets/curly.png";
+import pixie from "../../assets/pixie.png";
+import wave from "../../assets/wave.png";
+import nadula from "../../assets/nadula.png";
+import quick from "../../assets/quick.png";
+import glue from "../../assets/glue.png";
+import blonde from "../../assets/blonde.png";
+import prom from "../../assets/prom.png";
 import Footer from "../../components/Footer/Footer.jsx";
 
 const Services = () => {
@@ -89,6 +100,86 @@ const Services = () => {
             price: "£200",
             category: "Wigs",
             img: closure
+        },
+        {
+            title: "Lemonade Braids",
+            duration: "1.5-2 hours",
+            content: "Deep cleansing, conditioning, and styling for healthy natural hair.",
+            price: "£40",
+            category: "Braiding",
+            img: lemonade
+        },
+        {
+            title: "Dolly Braids",
+            duration: "3-5 hours",
+            content: "Intensive moisture treatment to restore health and shine to damaged hair",
+            price: "£120",
+            category: "Braiding",
+            img: dolly
+        },
+        {
+            title: "Fulani boho braids",
+            duration: "2-3 hours",
+            content: "Fast and flawless bonded weave application for instant transformation.",
+            price: "£95",
+            category: "Braiding",
+            img: fulani
+        },
+        {
+            title: "Curly Short Bob Highlight ",
+            duration: "4-6 hours",
+            content: "Classic protective style with individual braids that can last 6-8 weeks with proper care",
+            price: "£95",
+            category: "Wigs",
+            img: curly
+        },
+        {
+            title: "Short Pixie Cut Curly Lace",
+            duration: "3-4 hours",
+            content: "Versatile protective style with natural-looking crochet hair installations. ",
+            price: "£120",
+            category: "Wigs",
+            img: pixie
+        },
+        {
+            title: " Lace Frontal Loose Wave Wigs",
+            duration: "5 hours",
+            content: "Gentle braiding technique that reduces tension on the scalp for a more comfortable wear",
+            price: "£120",
+            category: "Wigs",
+            img: wave
+        },
+        {
+            title: "Nadula 3D Body Wave",
+            duration: "1.5-2 hours",
+            content: "Deep cleansing, conditioning, and styling for healthy natural hair.",
+            price: "£40",
+            category: "Wigs",
+            img: nadula
+        },
+        {
+            title: "GlueLess Wavy Wig",
+            duration: "4-5 hours",
+            content: "Beautiful goddess locs or bohemian locs for a stunning protective style.",
+            price: "£145",
+            category: "Wigs",
+            img: glue
+        },
+        {
+            title: " Blonde Bob Wig",
+            duration: "3-5 hours",
+            content: "Intensive moisture treatment to restore health and shine to damaged hair",
+            price: "£120",
+            category: "Wigs",
+            img: blonde
+        },
+        {
+            title: "Prom Wig",
+            duration: "2-3 hours",
+            content: "Fast and flawless bonded weave application for instant transformation.",
+            price: "£95",
+            category: "Wigs",
+            img: prom
         }
     ];
 

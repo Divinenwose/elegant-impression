@@ -72,7 +72,7 @@ const HomePage = ({ setCartCount }) => {
                         <div className="card-text-container">
                             <div className="card-text">
                                 <h4>Braiding</h4>
-                                <p>Intricate cornrow patterns, including feed-in braids and tribal designs.</p>
+                                <p>Precision cornrows crafted with neat feed-in braids, for a sleek, long-lasting.</p>
                             </div>
                             <div className="price">
                                 <Link to="/services">Learn More</Link>
@@ -84,7 +84,7 @@ const HomePage = ({ setCartCount }) => {
                         <div className="card-text-container">
                             <div className="card-text">
                                 <h4>Wigs</h4>
-                                <p>Soft, bohemian twists for a romantic and elegant look.</p>
+                                <p>Premium wigs styled to blend naturally, giving you effortless beauty and confidence.</p>
                             </div>
                             <div className="price">
                                 <Link to="/services">Learn More</Link>
@@ -96,7 +96,7 @@ const HomePage = ({ setCartCount }) => {
                         <div className="card-text-container">
                             <div className="card-text">
                                 <h4>Hair Treatment</h4>
-                                <p>Fast and flawless bonded weave application for instant transformation.</p>
+                                <p>Nourishing treatments designed to restore strength, shine, and healthy hair.</p>
                             </div>
                             <div className="price">
                                 <Link to="/services">Learn More</Link>
@@ -108,7 +108,7 @@ const HomePage = ({ setCartCount }) => {
                         <div className="card-text-container">
                             <div className="card-text">
                                 <h4>Styling</h4>
-                                <p>Beautiful goddess locs or bohemian locs for a stunning protective style.</p>
+                                <p>Professional styling that enhances your look with smooth, elegant finishes.</p>
                             </div>
                             <div className="price">
                                 <Link to="/services">Learn More</Link>

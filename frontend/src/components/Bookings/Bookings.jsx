@@ -46,13 +46,13 @@ const Bookings = () => {
                         </div>
                         <div class="desired">
                             <label for="desiredService">Desired Service</label>
-                            <input type="text"
-                                id="desiredService"
-                                name="Desired Service"
-                                placeholder="e.g Braids, Weave, etc"
-                                pattern="[A-Za-z\s]+"
-                                title="Service must contain only letters and spaces"
-                                required />
+                            <select name="desiredService" id="desiredService" required>
+                                <option value="" disabled selected hidden>e.g Braids, Wigs, etc</option>
+                                <option value="Braids">Braids</option>
+                                <option value="Wigs">Wigs</option>
+                                <option value="Treatments">Treatments</option>
+                                <option value="Styling">Styling</option>
+                            </select>
                         </div>
                         <div class="text-mt">
                             <label for="message">Message</label>

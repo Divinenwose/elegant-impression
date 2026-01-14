@@ -24,7 +24,9 @@ const Navbar = ({ cartCount }) => {
                     <li><NavLink to="/about">About</NavLink></li>
                     <li><NavLink to="/services">Services</NavLink></li>
                     <li><NavLink to="/products">Shop</NavLink></li>
+                    <li><NavLink to="/gallery">Gallery</NavLink></li>
                     <li><NavLink to="/contact">Contact</NavLink></li>
+
                 </ul>
 
                 <div className="nav-contacts">
@@ -50,7 +52,7 @@ const Navbar = ({ cartCount }) => {
             </nav>
             <div className={`mobile-drawer ${isMenuOpen ? "open" : ""}`}>
                 <button className="drawer-close" onClick={() => setIsMenuOpen(false)}>
-                     <img src={Close} alt="" />
+                    <img src={Close} alt="" />
                 </button>
 
                 <ul className="drawer-links">
@@ -58,6 +60,7 @@ const Navbar = ({ cartCount }) => {
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/about">About</NavLink></li>
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/services">Services</NavLink></li>
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/products">Shop</NavLink></li>
+                    <li onClick={() => setIsMenuOpen(false)}><NavLink to="/gallery">Gallery</NavLink></li>
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/contact">Contact</NavLink></li>
                 </ul>
             </div>

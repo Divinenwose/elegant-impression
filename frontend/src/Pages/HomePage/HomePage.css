@@ -121,7 +121,7 @@
 
 .home-services {
     height: 710px;
-    background: #0E0E0E;
+    background: #1A1A1A;
     padding-top: 20px;
     padding-right: 80px;
     padding-bottom: 20px;
@@ -203,15 +203,15 @@
 .home-services-card {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
     margin-top: 40px;
 }
 
 .card1 {
-    width: 288px;
-    height: 420px;
+    width: 328px;
+    height: 440px;
     border-radius: 14px;
-    background: #1A1A1A;
+    background: #0E0E0E;
 }
 
 .card1 img {
@@ -223,7 +223,7 @@
 .card-text-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 25px;
     padding: 20px;
 }
 
@@ -247,6 +247,7 @@
     letter-spacing: 0%;
     vertical-align: middle;
     color: #B3B3B3;
+    margin-top: 5px;
 }
 
 .price {
@@ -300,9 +301,9 @@
 
 
 .why {
-    height: 494px;
+    height: 499px;
     background: #0E0E0E;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-right: 80px;
     padding-bottom: 20px;
     padding-left: 80px;
@@ -382,7 +383,7 @@
 
 .shop {
     height: 910px;
-    background: #0E0E0E;
+    background: #1A1A1A;
     padding-top: 20px;
     padding-right: 80px;
     padding-bottom: 20px;
@@ -454,7 +455,7 @@
 .card2 {
     height: 464px;
     border-radius: 14px;
-    background: #1A1A1A;
+    background: #000000;
 }
 
 
@@ -536,7 +537,7 @@
     border-radius: 9999px;
     border-width: 2px;
     text-decoration: none;
-    background: #000000;
+    background: #1A1A1A;
     border: 2px solid #BFA44A;
     padding-inline: 50px;
     padding-block: 10px;

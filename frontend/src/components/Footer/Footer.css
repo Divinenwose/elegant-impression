@@ -158,7 +158,8 @@
     padding-left: 80px;
 }
 
-.reserved p {
+.reserved a,
+.reserved p{
     font-family: "Inter";
     font-weight: 400;
     font-style: normal;
@@ -167,6 +168,7 @@
     letter-spacing: 0%;
     vertical-align: middle;
     color: #B3B3B3;
+    text-decoration: none;
 }
 
 .policy {

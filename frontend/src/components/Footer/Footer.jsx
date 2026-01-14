@@ -86,9 +86,9 @@ const Footer = () => {
                     <p> <span className="year">© {year}</span> Elegant Impressions. All rights reserved.</p>
                 </div>
                 <div className="policy">
-                    <p>Privacy Policy</p>
-                    <p>Terms of Service</p>
-                    <p>Shipping Policy</p>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="/terms-of-service">Terms of Service</Link>
+                    <Link to="/shipping-policy">Shipping Policy</Link>
                 </div>
             </div>
         </footer>
