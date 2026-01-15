@@ -7,7 +7,7 @@ import Chat from "../../assets/chat.png";
 import TikTok from "../../assets/tiktok.png";
 import location from "../../assets/location.png";
 import mail from "../../assets/mail.png";
-import phone from "../../assets/phone.png";
+ import phone from "../../assets/phone.png";
 
 const year = new Date().getFullYear();
 
