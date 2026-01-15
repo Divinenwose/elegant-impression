@@ -582,28 +582,28 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 380px;
         height: 577px;
         margin-left: 7px;
     }
 
-    .service-cards .images {
+    .also .service-cards .images {
         width: 380px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 340px;
     }
@@ -685,28 +685,28 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 360px;
         height: 557px;
         margin-left: 7px;
     }
 
-    .service-cards .images {
+    .also .service-cards .images {
         width: 360px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 328px;
     }
@@ -788,28 +788,28 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 360px;
         height: 557px;
         margin-left: 7px;
     }
 
-    .service-cards .images {
+    .also .service-cards .images {
         width: 360px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 328px;
     }
@@ -891,28 +891,28 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 340px;
         height: 557px;
         margin-left: 7px;
     }
 
-    .service-cards .images {
+    .also .service-cards .images {
         width: 340px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 290px;
     }
@@ -994,28 +994,28 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 320px;
         height: 557px;
         margin-left: 7px;
     }
 
-    .service-cards .images {
+    .also .service-cards .images {
         width: 320px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 300px;
     }
@@ -1097,14 +1097,14 @@
         margin-top: 20px;
     }
 
-    .service-grid {
+    .also .service-grid {
         margin-top: 80px;
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .service-cards {
+    .also .service-cards {
         width: 307px;
         height: 557px;
         margin-left: 7px;
@@ -1114,11 +1114,11 @@
         width: 305px;
     }
 
-    .service-info {
+    .also .service-info {
         padding: 10px;
     }
 
-    .service-flex {
+    .also .service-flex {
         padding-right: 6px;
         width: 290px;
     }

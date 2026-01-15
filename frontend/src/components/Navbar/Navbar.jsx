@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../assets/logo.png";
-import Whatsapp from "../../assets/whatsapp.png";
 import Bag from "../../assets/bag.png";
 import CartModal from "../CartModal/CartModal.jsx";
 import menu from "../../assets/menu.png";
@@ -30,18 +29,11 @@ const Navbar = ({ cartCount }) => {
                 </ul>
 
                 <div className="nav-contacts">
-                    <a
-                        className="nav-whatsapp"
-                        href="https://wa.me/447831331434"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img src={Whatsapp} alt="WhatsApp" />
-                    </a>
                     <div className="cart-wrapper" onClick={() => setIsCartOpen(true)}>
                         <img src={Bag} alt="cart icon" className="cart-icon" />
                         <span className="cart-badge">{cartCount}</span>
                     </div>
+                    <Link className="bk-btn" to="/contact">Book an Appointment</Link>
                     <img
                         src={menu}
                         alt="menu"
@@ -63,8 +55,16 @@ const Navbar = ({ cartCount }) => {
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/gallery">Gallery</NavLink></li>
                     <li onClick={() => setIsMenuOpen(false)}><NavLink to="/contact">Contact</NavLink></li>
                 </ul>
+                <div className="drawer-book">
+                    <Link
+                        to="/contact"
+                        className="bk-btn"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Book an Appointment
+                    </Link>
+                </div>
             </div>
-
             {isCartOpen && <CartModal onClose={() => setIsCartOpen(false)} cartCount={cartCount} />}
         </>
     );
