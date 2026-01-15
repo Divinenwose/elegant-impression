@@ -1,9 +1,38 @@
 .service-details-container {
     height: auto;
     background: #0E0E0E;
-    padding: 150px 80px;
+    padding: 90px 80px;
 
 }
+
+.back-wrapper {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 40px 20px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13.6px;
+    color: #b3b3b3;
+    line-height: 24px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #D4AF37;
+}
+
 
 .details-main {
     display: flex;
@@ -196,7 +225,8 @@
     justify-content: space-between;
 }
 
-.total-price p {
+.total-price .tot,
+.total-price .updates {
     font-family: "Inter";
     font-weight: 400;
     font-style: normal;
@@ -221,6 +251,40 @@
     justify-content: space-between;
     margin-top: 30px;
 }
+
+.tab-nav {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #D4AF37;
+}
+
+
+.reviews-empty {
+    padding: 40px 0;
+    text-align: center;
+    color: #777;
+}
+
 
 .overview-container h3 {
     font-family: "Inter";
@@ -440,4 +504,622 @@
     letter-spacing: 0%;
     vertical-align: middle;
     color: #fff;
+}
+
+@media screen and (width: 430px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 389px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 365px;
+    }
+
+    .boo-btn {
+        width: 375px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 259px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 389px;
+    }
+
+    .help-btn {
+        width: 295px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 369px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 380px;
+        height: 577px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 380px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 340px;
+    }
+}
+
+@media screen and (width: 414px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 373px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 335px;
+    }
+
+    .boo-btn {
+        width: 368px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 209px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 370px;
+    }
+
+    .help-btn {
+        width: 295px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 347px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 360px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 360px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 328px;
+    }
+}
+
+@media screen and (width: 412px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 373px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 335px;
+    }
+
+    .boo-btn {
+        width: 368px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 209px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 370px;
+    }
+
+    .help-btn {
+        width: 295px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 347px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 360px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 360px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 328px;
+    }
+}
+
+@media screen and (min-width: 390px) and (max-width: 411px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 350px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 335px;
+    }
+
+    .boo-btn {
+        width: 345px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 209px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 350px;
+    }
+
+    .help-btn {
+        width: 295px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 347px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 290px;
+    }
+}
+
+@media screen and (width:375px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 334px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 335px;
+    }
+
+    .boo-btn {
+        width: 325px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 209px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 334px;
+    }
+
+    .help-btn {
+        width: 285px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 340px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 320px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 320px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:360px) {
+    .service-details-container {
+        padding: 20px 20px;
+    }
+
+    .back-wrapper {
+        margin: 40px -20px 0;
+    }
+
+    .details-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-img img {
+        width: 324px;
+        height: 320px;
+    }
+
+    .details-info .desc {
+        width: 328px;
+    }
+
+    .boo-btn {
+        width: 315px;
+        height: 50px;
+        border-radius: 40px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 14px;
+        padding-left: 24px;
+        margin-top: 25px;
+    }
+
+    .total-price .updates {
+        width: 209px;
+    }
+
+    .overview-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .box,
+    .need {
+        width: 325px;
+    }
+
+    .help-btn {
+        width: 285px;
+    }
+
+    .tab-nav {
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+
+    .overview p {
+        width: 327px;
+    }
+
+    .also {
+        padding: 20px;
+    }
+
+    .also .service-cards {
+        margin-top: 40px;
+    }
+
+    .related h2 {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 307px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 305px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 290px;
+    }
 }

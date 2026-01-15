@@ -1,5 +1,6 @@
 import boxbraid from "../assets/box-braid.png";
 import knotless from "../assets/knotless.png";
+import locs from "../assets/locs.png";
 
 
 export const services = [
@@ -7,6 +8,7 @@ export const services = [
     title: "Box Braids",
     slug: "box-braids",
     duration: "4-6 hours",
+    price: "£95",
     content:
       "Our signature box braids are a timeless protective style that combines beauty with functionality. Each braid is carefully crafted to ensure even tension and a natural appearance that can last 6-8 weeks with proper care.",
     content1: "Classic protective style with individual braids that can last 6-8 weeks with proper care",
@@ -92,5 +94,5 @@ export const services = [
       }
     }
   }
-  // rest of services
+  
 ];

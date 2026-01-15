@@ -61,6 +61,7 @@ const Services = () => {
         },
         {
             title: "Kinky Twist",
+            slug: "kinky twist",
             duration: "2-3 hours",
             content: "Intricate cornrow patterns, including feed-in braids and tribal designs.",
             price: "£65",
@@ -69,6 +70,7 @@ const Services = () => {
         },
         {
             title: "Faux Locs",
+            slug: "faux-locs",
             duration: "4-5 hours",
             content: "Beautiful goddess locs or bohemian locs for a stunning protective style.",
             price: "£145",
@@ -101,6 +103,7 @@ const Services = () => {
         },
         {
             title: "Feed In Stitch + Butterfly",
+            slug: "feed-in-stitch + butterfly",
             duration: "3-4 hours",
             content: "Versatile protective style with natural-looking crochet hair installations. ",
             price: "£120",
@@ -109,6 +112,7 @@ const Services = () => {
         },
         {
             title: "Lemonade Braids",
+            slug: "lemonade-braids",
             duration: "1.5-2 hours",
             content: "Deep cleansing, conditioning, and styling for healthy natural hair.",
             price: "£40",
@@ -117,6 +121,7 @@ const Services = () => {
         },
         {
             title: "Goddess Braids + Pick Drop",
+            slug: "goddess-braids + pick drop",
             duration: "2-3 hours",
             content: "Intricate cornrow patterns, including feed-in braids and tribal designs.",
             price: "£65",
@@ -125,6 +130,7 @@ const Services = () => {
         },
         {
             title: "Fulani boho braids",
+            slug: "fulani-boho-braids",
             duration: "2-3 hours",
             content: "Fast and flawless bonded weave application for instant transformation.",
             price: "£95",
@@ -133,6 +139,7 @@ const Services = () => {
         },
         {
             title: "French Curls",
+            slug: "french-curls",
             duration: "3-5 hours",
             content: "Intensive moisture treatment to restore health and shine to damaged hair",
             price: "£120",
@@ -141,6 +148,7 @@ const Services = () => {
         },
         {
             title: "Bone Straight",
+            slug: "bone-staright",
             duration: "4-5 hours",
             content: "Lace closure or frontal installation for the most natural hairline.",
             price: "£200",

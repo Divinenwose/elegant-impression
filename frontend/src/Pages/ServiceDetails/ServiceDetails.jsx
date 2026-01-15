@@ -3,11 +3,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import "./ServiceDetails.css";
 import clock from "../../assets/clock.png";
 import mark from "../../assets/mark.png";
+import arrow from "../../assets/arrow.png";
 import Footer from "../../components/Footer/Footer.jsx";
 
 const ServiceDetails = ({ services }) => {
     const { slug } = useParams();
     const [length, setLength] = useState("");
+    const [activeTab, setActiveTab] = useState("overview");
     const [size, setSize] = useState("");
     const navigate = useNavigate();
 
@@ -35,6 +37,11 @@ const ServiceDetails = ({ services }) => {
     return (
         <section className="service-details">
             <div className="service-details-container">
+                <div className="back-wrapper">
+                    <button className="back-btn" onClick={() => navigate(-1)}>
+                        <img src={arrow} alt="arrow-icon" /> Back to Services
+                    </button>
+                </div>
                 <div className="details-main">
                     <div className="details-img">
                         <img src={service.img} alt={service.title} />
@@ -91,10 +98,10 @@ const ServiceDetails = ({ services }) => {
                             {totalPrice && (
                                 <div className="total-price">
                                     <div className="pr-flex">
-                                        <p>Total Price</p>
+                                        <p className="tot">Total Price</p>
                                         <h3>£{totalPrice}</h3>
                                     </div>
-                                    <p>Price updates based on your selections</p>
+                                    <p className="updates">Price updates based on your selections</p>
                                 </div>
                             )}
                         </div>
@@ -110,47 +117,68 @@ const ServiceDetails = ({ services }) => {
                     </div>
                 </div>
                 <div className="overview-container">
-                    <h3>Overview</h3>
-                    <div className="overview-flex">
-                        <div className="right">
-                            <div className="overview">
-                                <p>{service.overview}</p>
-                            </div>
-                            <div className="benefits">
-                                <h3>Benefits</h3>
-                                <ul>
-                                    {service.benefits.map((benefit, index) => (
-                                        <li key={index} className="benefit-item">
-                                            <img src={mark} alt="check-icon" className="benefit-icon" />
-                                            {benefit}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="left">
-                            <div className="box">
-                                <h4>Service Details</h4>
-                                <div className="box-dur">
-                                    <h3>Duration</h3>
-                                    <p>{service.duration}</p>
-                                </div>
-                                <div className="box-du">
-                                    <h3>Price Range</h3>
-                                    <p className="base">From £{basePrice}</p>
-                                </div>
-                                <div className="box-dur">
-                                    <p className="suitable">Suitable For</p>
-                                    <p className="all">All hair types and textures</p>
-                                </div>
-                            </div>
-                            <div className="need">
-                                <h4>Need Help?</h4>
-                                <p>Have questions about this service? Our team is here to help!</p>
-                                <Link to="/contact" className="help-btn">Contact Us</Link>
-                            </div>
-                        </div>
+                    <div className="tab-nav">
+                        <button
+                            className={`tab-btn ${activeTab === "overview" ? "active" : ""}`}
+                            onClick={() => setActiveTab("overview")}
+                        >
+                            Overview
+                        </button>
+                        <button
+                            className={`tab-btn ${activeTab === "reviews" ? "active" : ""}`}
+                            onClick={() => setActiveTab("reviews")}
+                        >
+                            Reviews
+                        </button>
                     </div>
+                    {activeTab === "overview" && (
+                        <div className="overview-flex">
+                            <div className="right">
+                                <div className="overview">
+                                    <p>{service.overview}</p>
+                                </div>
+                                <div className="benefits">
+                                    <h3>Benefits</h3>
+                                    <ul>
+                                        {service.benefits.map((benefit, index) => (
+                                            <li key={index} className="benefit-item">
+                                                <img src={mark} alt="check-icon" className="benefit-icon" />
+                                                {benefit}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="left">
+                                <div className="box">
+                                    <h4>Service Details</h4>
+                                    <div className="box-dur">
+                                        <h3>Duration</h3>
+                                        <p>{service.duration}</p>
+                                    </div>
+                                    <div className="box-du">
+                                        <h3>Price Range</h3>
+                                        <p className="base">From £{basePrice}</p>
+                                    </div>
+                                    <div className="box-dur">
+                                        <p className="suitable">Suitable For</p>
+                                        <p className="all">All hair types and textures</p>
+                                    </div>
+                                </div>
+                                <div className="need">
+                                    <h4>Need Help?</h4>
+                                    <p>Have questions about this service? Our team is here to help!</p>
+                                    <Link to="/contact" className="help-btn">Contact Us</Link>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    {activeTab === "reviews" && (
+                        <div className="reviews-empty">
+                            <h3>No reviews yet</h3>
+                            <p>Be the first to review this service.</p>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="also">
