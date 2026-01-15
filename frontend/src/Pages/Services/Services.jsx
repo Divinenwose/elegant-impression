@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Services.css";
 import boxbraid from "../../assets/box-braid.png";
 import knotless from "../../assets/knotless.png";
@@ -12,15 +13,18 @@ import closure from "../../assets/closure.png";
 import clock from "../../assets/clock.png";
 import lemonade from "../../assets/lemonade.png";
 import dolly from "../../assets/dolly.png";
-import fulani from "../../assets/fulani.png";
+import goddess from "../../assets/goddess.png";
 import curly from "../../assets/curly.png";
 import pixie from "../../assets/pixie.png";
 import wave from "../../assets/wave.png";
 import nadula from "../../assets/nadula.png";
+import feed from "../../assets/feed.png";
 import quick from "../../assets/quick.png";
 import glue from "../../assets/glue.png";
 import blonde from "../../assets/blonde.png";
 import prom from "../../assets/prom.png";
+import french from "../../assets/french.png";
+import bone from "../../assets/bone.png";
 import Footer from "../../components/Footer/Footer.jsx";
 
 const Services = () => {
@@ -31,6 +35,7 @@ const Services = () => {
     const services = [
         {
             title: "Box Braids",
+            slug: "box-braids",
             duration: "4-6 hours",
             content: "Classic protective style with individual braids that can last 6-8 weeks with proper care",
             price: "£95",
@@ -38,15 +43,8 @@ const Services = () => {
             img: boxbraid
         },
         {
-            title: "Crochet Braids",
-            duration: "3-4 hours",
-            content: "Versatile protective style with natural-looking crochet hair installations. ",
-            price: "$120",
-            category: "Braiding",
-            img: crochet
-        },
-        {
             title: "Medium Knotless Braids",
+            slug: "knotless-braids",
             duration: "5 hours",
             content: "Gentle braiding technique that reduces tension on the scalp for a more comfortable wear",
             price: "$120",
@@ -62,7 +60,7 @@ const Services = () => {
             img: wash
         },
         {
-            title: "Cornrows",
+            title: "Kinky Twist",
             duration: "2-3 hours",
             content: "Intricate cornrow patterns, including feed-in braids and tribal designs.",
             price: "£65",
@@ -102,6 +100,14 @@ const Services = () => {
             img: closure
         },
         {
+            title: "Feed In Stitch + Butterfly",
+            duration: "3-4 hours",
+            content: "Versatile protective style with natural-looking crochet hair installations. ",
+            price: "£120",
+            category: "Braiding",
+            img: feed
+        },
+        {
             title: "Lemonade Braids",
             duration: "1.5-2 hours",
             content: "Deep cleansing, conditioning, and styling for healthy natural hair.",
@@ -110,12 +116,12 @@ const Services = () => {
             img: lemonade
         },
         {
-            title: "Dolly Braids",
-            duration: "3-5 hours",
-            content: "Intensive moisture treatment to restore health and shine to damaged hair",
-            price: "£120",
+            title: "Goddess Braids + Pick Drop",
+            duration: "2-3 hours",
+            content: "Intricate cornrow patterns, including feed-in braids and tribal designs.",
+            price: "£65",
             category: "Braiding",
-            img: dolly
+            img: goddess
         },
         {
             title: "Fulani boho braids",
@@ -123,7 +129,23 @@ const Services = () => {
             content: "Fast and flawless bonded weave application for instant transformation.",
             price: "£95",
             category: "Braiding",
-            img: fulani
+            img: crochet
+        },
+        {
+            title: "French Curls",
+            duration: "3-5 hours",
+            content: "Intensive moisture treatment to restore health and shine to damaged hair",
+            price: "£120",
+            category: "Braiding",
+            img: french
+        },
+        {
+            title: "Bone Straight",
+            duration: "4-5 hours",
+            content: "Lace closure or frontal installation for the most natural hairline.",
+            price: "£200",
+            category: "Braiding",
+            img: bone
         },
         {
             title: "Curly Short Bob Highlight ",
@@ -211,23 +233,25 @@ const Services = () => {
                 </div>
                 <div className="service-grid">
                     {filteredServices.map((service, index) => (
-                        <div className="service-cards" key={index}>
-                            <img src={service.img} alt={service.title} className="images" />
-                            <div className="service-info">
-                                <h3>{service.title}</h3>
-                                <div className="dur">
-                                    <div className="dur-img">
-                                        <img src={clock} alt="clock-icon" />
+                        <Link to={`/services/${service.slug}`} className="service-link" key={index}>
+                            <div className="service-cards" key={index}>
+                                <img src={service.img} alt={service.title} className="images" />
+                                <div className="service-info">
+                                    <h3>{service.title}</h3>
+                                    <div className="dur">
+                                        <div className="dur-img">
+                                            <img src={clock} alt="clock-icon" />
+                                        </div>
+                                        <p className="duration">{service.duration}</p>
                                     </div>
-                                    <p className="duration">{service.duration}</p>
-                                </div>
-                                <p className="content">{service.content}</p>
-                                <div className="service-flex">
-                                    <p className="price">From {service.price}</p>
-                                    <button className="book-btn">Book Now</button>
+                                    <p className="content">{service.content}</p>
+                                    <div className="service-flex">
+                                        <p className="price">From {service.price}</p>
+                                        <button className="book-btn">Book Now</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import './About.css';
-import Abouthero from './Image.png';
 import Footer from "../../components/Footer/Footer.jsx";
 import about1 from "../../assets/about1.png";
 import about2 from "../../assets/about2.png";
@@ -40,12 +39,7 @@ const values = [
 function About() {
     return (
         <section className="about-page">
-
-            {/* Hero Section */}
-            <section
-                className="about-hero-section"
-                style={{ backgroundImage: `url(${Abouthero})` }}
-            >
+            <section className='about-hero-section'>
                 <div className="about-overlay">
                     <h1 className="about-hero-title">About Us</h1>
                     <p className="about-hero-description">

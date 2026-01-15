@@ -4,7 +4,7 @@
 }
 
 .about-hero-section {
-  background-image: url('./image.png');
+  background-image: url(/Image.png);
   background-size: cover;
   background-position: center;
   height: 493px;
@@ -401,7 +401,6 @@
   .about-image img {
     width: 368px;
     height: 259px;
-    margin-right: px;
   }
 
   .about-content h2,

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./HomePage.css";
 import arrow from "../../assets/arrow-right.png";
 import card1 from "../../assets/card1.png";
@@ -24,6 +25,11 @@ import Bookings from "../../components/Bookings/Bookings.jsx";
 import head from "../../assets/heads.png";
 
 const HomePage = ({ setCartCount }) => {
+    const slideUp = {
+        hidden: { scale: 0.9, opacity: 0 },
+        visible: { scale: 1, opacity: 1 }
+    };
+
     return (
         <section className="home">
             <div className="hero-container">
@@ -49,10 +55,20 @@ const HomePage = ({ setCartCount }) => {
                 </div>
             </div>
             <div className="home-services">
-                <div className="home-service-btn">
+                <motion.div
+                    variants={slideUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }} className="home-service-btn">
                     <a href="">Services</a>
-                </div>
-                <div className="home-services-text">
+                </motion.div>
+                <motion.div
+                    variants={slideUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1, ease: "easeOut" }} className="home-services-text">
                     <h2>Our Services</h2>
                     <div className="view-flex">
                         <div className="view-flex-paragraph">
@@ -65,9 +81,14 @@ const HomePage = ({ setCartCount }) => {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </motion.div>
                 <div className="home-services-card">
-                    <div className="card1">
+                    <motion.div
+                        variants={slideUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 1.8, ease: "easeOut" }} className="card1">
                         <img src={card1} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
@@ -78,8 +99,13 @@ const HomePage = ({ setCartCount }) => {
                                 <Link to="/services">Learn More</Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="card1">
+                    </motion.div>
+                    <motion.div
+                        variants={slideUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 2, ease: "easeOut" }} className="card1">
                         <img src={card2} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
@@ -90,8 +116,13 @@ const HomePage = ({ setCartCount }) => {
                                 <Link to="/services">Learn More</Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="card1">
+                    </motion.div>
+                    <motion.div
+                        variants={slideUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 2.4, ease: "easeOut" }} className="card1">
                         <img src={card3} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
@@ -102,8 +133,13 @@ const HomePage = ({ setCartCount }) => {
                                 <Link to="/services">Learn More</Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="card1">
+                    </motion.div>
+                    <motion.div
+                        variants={slideUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 2.6, ease: "easeOut" }} className="card1">
                         <img src={card4} alt="" />
                         <div className="card-text-container">
                             <div className="card-text">
@@ -114,7 +150,7 @@ const HomePage = ({ setCartCount }) => {
                                 <Link to="/services">Learn More</Link>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <div className="why">
@@ -181,7 +217,7 @@ const HomePage = ({ setCartCount }) => {
                         <img src={shop2} alt="" />
                         <div className="shop-card-container">
                             <div className="shop-card-text">
-                                <h4>Sleek Edge Control</h4>
+                                <h4>Body Wave Human Hair</h4>
                                 <p>24-hour hold without the flake or  </p>
                             </div>
                             <div className="shop-price">
@@ -221,7 +257,7 @@ const HomePage = ({ setCartCount }) => {
                         <img src={shop4} alt="" />
                         <div className="shop-card-container">
                             <div className="shop-card-text">
-                                <h4>Sleek Edge Control</h4>
+                                <h4>Kinky Curly Hair</h4>
                                 <p>24-hour hold without the flake or </p>
                             </div>
                             <div className="shop-price">
