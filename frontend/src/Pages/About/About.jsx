@@ -120,7 +120,7 @@ function About() {
           </button>
           
           <button className="btn secondary">
-            Contact Us
+            Shop All Products
           </button>
         </div>
       </div>
