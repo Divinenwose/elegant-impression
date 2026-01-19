@@ -4,7 +4,7 @@ export interface IProduct extends Document {
     name: string;
     description?: string;
     price: number;
-    category: string;
+    category: mongoose.Types.ObjectId;  // Changed to ObjectId
     isVisible: boolean;
     images: string[];
     options?: {
@@ -15,23 +15,25 @@ export interface IProduct extends Document {
         }[];
     }[];
     stock: number;
+    weight_grams?: number; // Added handling for shipping calc
 }
 
 const ProductSchema: Schema = new Schema({
     name: { type: String, required: true },
     description: { type: String },
     price: { type: Number, required: true },
-    category: { type: String, required: true },
+    category: { type: Schema.Types.ObjectId, ref: 'Category', required: true }, // Ref to Category
     isVisible: { type: Boolean, default: true },
     images: [{ type: String }],
     options: [{
         name: { type: String },
         values: [{
             value: { type: String },
-            price: { type: Number } // If present, overrides base price for this specific choice
+            price: { type: Number }
         }]
     }],
-    stock: { type: Number, default: 0 }
+    stock: { type: Number, default: 0 },
+    weight_grams: { type: Number, default: 0 }
 }, {
     timestamps: true
 });
