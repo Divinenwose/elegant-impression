@@ -1,10 +1,7 @@
 .hero-container {
     background: url(/hero.png) no-repeat center center / cover;
     height: 800px;
-    padding-top: 20px;
-    padding-right: 80px;
-    padding-bottom: 20px;
-    padding-left: 80px;
+    padding: 20px 80px;
     position: relative;
 }
 
@@ -22,41 +19,31 @@
 }
 
 .hair {
-    width: 227px;
-    height: 38px;
+    width: fit-content;
     border-radius: 200px;
-    padding-block: 12px;
-    padding-inline: 9px;
+    padding: 12px 9px;
     background: #FFFBF2;
     font-family: "Outfit";
     font-weight: 400;
-    font-style: normal;
     font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0%;
     color: #D4AF37;
 }
 
 .hero-text-main h2 {
     font-family: "Playfair Display";
     font-weight: 600;
-    font-style: Bold;
     font-size: 64px;
     line-height: 66px;
-    letter-spacing: 0%;
     color: #EDEDED;
-    width: 680px;
+    max-width: 680px;
     margin-top: 20px;
 }
 
 .hero-text-main p {
-    width: 474px;
+    max-width: 474px;
     font-family: "Outfit";
-    font-weight: 400;
-    font-style: normal;
     font-size: 20px;
     line-height: 25px;
-    letter-spacing: 0%;
     color: #B3B3B3;
     margin-top: 20px;
 }
@@ -64,10 +51,7 @@
 .ele {
     font-family: "Playfair Display";
     font-weight: 600;
-    font-style: Bold;
     font-size: 64px;
-    line-height: 100%;
-    letter-spacing: 0%;
     color: #D4AF37;
 }
 
@@ -137,7 +121,7 @@
 
 .home-services {
     height: 710px;
-    background: #0E0E0E;
+    background: #1A1A1A;
     padding-top: 20px;
     padding-right: 80px;
     padding-bottom: 20px;
@@ -219,15 +203,15 @@
 .home-services-card {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 12px;
     margin-top: 40px;
 }
 
 .card1 {
-    width: 288px;
-    height: 420px;
+    width: 328px;
+    height: 440px;
     border-radius: 14px;
-    background: #1A1A1A;
+    background: #0E0E0E;
 }
 
 .card1 img {
@@ -239,7 +223,7 @@
 .card-text-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 25px;
     padding: 20px;
 }
 
@@ -263,6 +247,7 @@
     letter-spacing: 0%;
     vertical-align: middle;
     color: #B3B3B3;
+    margin-top: 5px;
 }
 
 .price {
@@ -316,9 +301,9 @@
 
 
 .why {
-    height: 494px;
+    height: 499px;
     background: #0E0E0E;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-right: 80px;
     padding-bottom: 20px;
     padding-left: 80px;
@@ -398,7 +383,7 @@
 
 .shop {
     height: 910px;
-    background: #0E0E0E;
+    background: #1A1A1A;
     padding-top: 20px;
     padding-right: 80px;
     padding-bottom: 20px;
@@ -414,7 +399,7 @@
     margin-top: 45px;
 }
 
-.shop-btn a {
+.home-shop-btn a {
     width: 124px;
     height: 36px;
     border-radius: 40px;
@@ -461,18 +446,18 @@
 }
 
 .shop-card {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 288px);
     gap: 18px;
     margin-top: 40px;
 }
 
 .card2 {
-    width: 288px;
     height: 464px;
     border-radius: 14px;
-    background: #1A1A1A;
+    background: #000000;
 }
+
 
 .card2 img {
     width: 288px;
@@ -552,7 +537,7 @@
     border-radius: 9999px;
     border-width: 2px;
     text-decoration: none;
-    background: #000000;
+    background: #1A1A1A;
     border: 2px solid #BFA44A;
     padding-inline: 50px;
     padding-block: 10px;
@@ -799,4 +784,1242 @@
     line-height: 100%;
     letter-spacing: 0%;
     color: #EDEDED;
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .hero-container {
+        padding: 20px;
+    }
+
+    .home-services {
+        padding: 40px 20px;
+    }
+
+    .view-flex-paragraph p {
+        width: 420px;
+    }
+
+    .home-services {
+        height: 1270px;
+    }
+
+    .home-services-card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card1 {
+        width: 350px;
+        height: 480px;
+    }
+
+    .card1 img {
+        width: 350px;
+    }
+
+    .why {
+        height: 640px;
+        padding: 90px 20px;
+    }
+
+    .why-cards {
+        gap: 40px;
+    }
+
+    .shop {
+        height: 1370px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 300px);
+    }
+
+    .card2 {
+        height: 470px;
+    }
+
+    .card2 img {
+        width: 300px;
+    }
+
+    .shop-price {
+        gap: 175px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+@media screen and (width: 430px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 170px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+        margin-left: 40px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2310px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+    }
+
+    .card1 {
+        width: 370px;
+        height: 490px;
+    }
+
+    .card1 img {
+        width: 370px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 30px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1268px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 30px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card2 {
+        width: 185px;
+        height: 420px;
+    }
+
+    .card2 img {
+        width: 185px;
+        height: 270px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 80px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+        width: 360px;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
+}
+
+@media screen and (width: 412px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 170px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+        margin-left: 20px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2310px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+    }
+
+    .card1 {
+        width: 370px;
+        height: 490px;
+    }
+
+    .card1 img {
+        width: 370px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 40px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1208px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 30px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card2 {
+        width: 175px;
+        height: 390px;
+    }
+
+    .card2 img {
+        width: 175px;
+        height: 250px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 80px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+        width: 409px;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
+}
+
+@media screen and (width: 414px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 170px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+        margin-left: 20px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2310px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card1 {
+        width: 370px;
+        height: 490px;
+    }
+
+    .card1 img {
+        width: 370px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 30px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1268px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 38px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card2 {
+        width: 185px;
+        height: 418px;
+    }
+
+    .card2 img {
+        width: 185px;
+        height: 280px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 80px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+        width: 360px;
+        margin-inline: auto;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
+}
+
+@media screen and (min-width: 390px) and (max-width: 411px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 170px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+        margin-left: 20px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head {
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2300px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+    }
+
+    .card1 {
+        width: 330px;
+        height: 469px;
+    }
+
+    .card1 img {
+        width: 330px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+        padding: 23px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 30px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1198px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 30px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card2 {
+        width: 172px;
+        height: 380px;
+    }
+
+    .card2 img {
+        width: 172px;
+        height: 230px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 80px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+        width: 360px;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
+}
+
+@media screen and (width: 375px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 140px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2150px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+    }
+
+    .card1 {
+        width: 310px;
+        height: 450px;
+    }
+
+    .card1 img {
+        width: 310px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 30px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1218px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 30px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card2 {
+        width: 158px;
+        height: 400px;
+    }
+
+    .card2 img {
+        width: 158px;
+        height: 250px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 56px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 20px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+        width: 360px;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .hero-container {
+        padding: 20px 20px;
+        height: 700px;
+        background-position: left top;
+    }
+
+    .hero-writing {
+        margin-top: 140px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hair {
+        margin: 0 auto;
+    }
+
+    .hero-text-main h2 {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .ele {
+        font-size: 36px;
+    }
+
+    .hero-text-main p {
+        font-size: 18px;
+        line-height: 24px;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .hero-btns {
+        gap: 5px;
+    }
+
+    .hero-book,
+    .explore {
+        width: 160px;
+        height: 48px;
+        padding-top: 16px;
+        padding-right: 20px;
+        padding-bottom: 16px;
+        padding-left: 20px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .head p {
+        font-size: 20px;
+    }
+
+    .home-services {
+        height: 2200px;
+        padding: 20px 20px;
+    }
+
+    .home-services-text h2 {
+        font-size: 32px;
+    }
+
+    .view-flex-paragraph p {
+        width: 358px;
+    }
+
+    .view-flex {
+        display: block;
+    }
+
+    .view-btn {
+        margin-top: 10px;
+    }
+
+    .home-services-card {
+        flex-direction: column;
+    }
+
+    .card1 {
+        width: 310px;
+        height: 460px;
+    }
+
+    .card1 img {
+        width: 310px;
+    }
+
+    .card-text-container {
+        gap: 22px;
+    }
+
+    .why {
+        height: 1130px;
+        padding: 30px 20px;
+    }
+
+    .why-text h2 {
+        font-size: 32px;
+    }
+
+    .why-text p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .why-cards {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .shop {
+        height: 1128px;
+        padding: 20px 20px;
+    }
+
+    .shop-container {
+        gap: 30px;
+    }
+
+    .shop-container h2 {
+        font-size: 32px;
+    }
+
+    .shop-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card2 {
+        width: 158px;
+        height: 350px;
+    }
+
+    .card2 img {
+        width: 158px;
+        height: 200px;
+    }
+
+    .shop-container {
+        gap: 9px;
+    }
+
+    .shop-card-container {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .shop-card-text {
+        gap: 2px;
+    }
+
+    .shop-card-text h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .shop-card-text p {
+        font-size: 12px;
+    }
+
+    .shop-price {
+        gap: 56px;
+    }
+
+    .shop-price a {
+        font-size: 14px;
+    }
+
+    .price-img img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .transform h2 {
+        line-height: 34px;
+    }
+
+    .transform p {
+        font-size: 16px;
+    }
+
+    .transfrom-btns {
+        gap: 6px;
+    }
+
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Product from '../models/Product';
+import Category from '../models/Category';
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
@@ -8,16 +9,22 @@ export const getProducts = async (req: Request, res: Response) => {
         let query: any = {};
 
         if (category) {
-            query.category = category;
+            // Find category by slug (or name) first if passed as string
+            const categoryDoc = await Category.findOne({ slug: category });
+            if (categoryDoc) {
+                query.category = categoryDoc._id;
+            } else {
+                // If category slug passed doesn't exist, return empty
+                return res.json([]);
+            }
         }
 
-        // Default to strict visibility unless includeHidden is specifically true (e.g. for admin, though no auth yet)
-        // For now, public API assumes we only show visible products, or we filter by isVisible=true by default
+        // Default to strict visibility unless includeHidden is specifically true (e.g. for admin)
         if (includeHidden !== 'true') {
             query.isVisible = true;
         }
 
-        const products = await Product.find(query);
+        const products = await Product.find(query).populate('category', 'name slug');
         res.json(products);
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });
@@ -26,7 +33,7 @@ export const getProducts = async (req: Request, res: Response) => {
 
 export const getProductById = async (req: Request, res: Response) => {
     try {
-        const product = await Product.findById(req.params.id);
+        const product = await Product.findById(req.params.id).populate('category', 'name slug');
         if (product) {
             res.json(product);
         } else {
@@ -39,13 +46,63 @@ export const getProductById = async (req: Request, res: Response) => {
 
 export const createProduct = async (req: Request, res: Response) => {
     try {
-        const { name, description, price, category, isVisible, images, options, stock } = req.body;
+        const { name, description, price, category, isVisible, images, options, stock, weight_grams } = req.body;
+
+        // Ensure category exists
+        const categoryExists = await Category.findById(category);
+        if (!categoryExists) {
+            return res.status(400).json({ message: 'Invalid Category ID' });
+        }
+
         const product = new Product({
-            name, description, price, category, isVisible, images, options, stock
+            name, description, price, category, isVisible, images, options, stock, weight_grams
         });
         const createdProduct = await product.save();
         res.status(201).json(createdProduct);
     } catch (error) {
         res.status(400).json({ message: 'Invalid product data', error: error });
+    }
+};
+
+export const updateProduct = async (req: Request, res: Response) => {
+    try {
+        const product = await Product.findById(req.params.id);
+
+        if (product) {
+            product.name = req.body.name || product.name;
+            product.description = req.body.description || product.description;
+            product.price = req.body.price || product.price;
+            product.category = req.body.category || product.category;
+            product.images = req.body.images || product.images;
+            product.options = req.body.options || product.options;
+            product.stock = req.body.stock || product.stock;
+            product.weight_grams = req.body.weight_grams || product.weight_grams;
+
+            if (req.body.isVisible !== undefined) {
+                product.isVisible = req.body.isVisible;
+            }
+
+            const updatedProduct = await product.save();
+            res.json(updatedProduct);
+        } else {
+            res.status(404).json({ message: 'Product not found' });
+        }
+    } catch (error) {
+        res.status(400).json({ message: 'Invalid product data', error: error });
+    }
+};
+
+export const deleteProduct = async (req: Request, res: Response) => {
+    try {
+        const product = await Product.findById(req.params.id);
+
+        if (product) {
+            await product.deleteOne();
+            res.json({ message: 'Product removed' });
+        } else {
+            res.status(404).json({ message: 'Product not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
     }
 };

@@ -1,0 +1,254 @@
+.products {
+    height: 493px;
+    background: url(/shophero.png) no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.products .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #00000080;
+    z-index: 1;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.product-container h2 {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #EDEDED;
+}
+
+.product-container p {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #B3B3B3;
+    width: 751px;
+}
+
+.category {
+    padding-top: 60px;
+    padding-right: 80px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+    background: #0E0E0E;
+    width: 2022px;
+}
+
+.category-filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.category-filter button {
+    width: 136px;
+    height: 48px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    border-radius: 40px;
+    border-width: 1px;
+    border: 1px solid #D4AF37;
+    background: #0E0E0E;
+    font-family: "Inter";
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 14px;
+    color: #fff;
+    line-height: 100%;
+    letter-spacing: 0%;
+    white-space: nowrap;
+}
+
+.category-filter button.active-filter {
+    background: #D4AF37;
+}
+
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.sort-dropdown label {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: #fff;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.sort-dropdown select {
+    width: 140px;
+    height: 48px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 10px;
+    border: 1px solid #FFD700;
+    background: #0E0E0E;
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+}
+
+.sort-dropdown select option {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #fff;
+}
+
+.line4 {
+    width: 1209px;
+    height: 0px;
+    margin-top: 49px;
+    margin-right: 24px;
+    margin-bottom: 12px;
+    border-width: 1px;
+    border: 1px solid #B3B3B3;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 21px;
+    max-width: calc(4 * 290px + 3 * 21px);
+    margin-top: 60px;
+}
+
+.product-card {
+    width: 290px;
+    height: 533px;
+    background: #1A1A1A;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-text {
+    padding: 10px;
+}
+
+.bundle {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #6B6560;
+}
+
+.name {
+    font-family: "Inter";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 15px;
+    line-height: 23px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #EDEDED;
+    margin-top: 20px;
+}
+
+.description {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #B3B3B3;
+    margin-top: 14px;
+}
+
+.point-cont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 13px;
+}
+
+.point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D4AF37;
+}
+
+.stock {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #D4AF37;
+}
+
+.api {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fixed {
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #D4AF37;
+}
+
+.api button {
+    width: 36px;
+    height: 36px;
+    background:#1A1A1A;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}

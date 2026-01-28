@@ -45,7 +45,7 @@
 .nav-contacts {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .nav-whatsapp {
@@ -53,6 +53,23 @@
     height: 44px;
     gap: 10px;
     border-radius: 300px;
+}
+
+.bk-btn {
+    width: 205px;
+    height: 40px;
+    background: #D4AF37;
+    border-radius: 24px;
+    padding-block: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #1A1A1A;
 }
 
 .nav-whatsapp img,
@@ -95,4 +112,101 @@
 .nav-whatsapp {
     background: #D4AF37;
     padding: 12px;
+}
+
+
+.mobile-menu-icon {
+    display: none;
+    width: 30px;
+    cursor: pointer;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -480px;
+    width: 290px;
+    height: 400px;
+    background: #0E0E0E;
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    border-left: 1px solid #ddd;
+}
+
+.mobile-drawer.open {
+    right: 0;
+}
+
+.drawer-close {
+    align-self: flex-end;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    font-family: "Inter";
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.2px;
+    text-align: center;
+    color: #EDEDED;
+}
+
+.drawer-links a:hover {
+    background: #D4AF37;
+}
+
+.drawer-book {
+    margin-bottom: 90px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    width: 185px;
+    height: 40px;
+    font-size: 12px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .navbar-container {
+        padding: 15px;
+    }
+
+    .nav-links,
+    .nav-whatsapp,
+    .bk-btn {
+        display: none;
+    }
+
+    .cart-wrapper {
+        display: inline-block;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .drawer-book .bk-btn {
+        display: block;
+    }
 }

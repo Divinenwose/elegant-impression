@@ -1,16 +1,26 @@
 .services-container {
     height: 493px;
-    background: #1A1A1A;
+    background: url(/sect-hero.png) no-repeat center center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
+
+.services-container .overlay {
+    position: absolute;
+    inset: 0;
+    background: #00000099;
+    z-index: 1;
+}
+
 
 .services-text {
     display: flex;
     flex-direction: column;
     gap: 22px;
     text-align: center;
+    z-index: 2;
 }
 
 .services-text h2 {
@@ -38,11 +48,11 @@
 }
 
 .services-section {
-    height: 2137px;
+    height: auto;
     background: #0E0E0E;
     padding-top: 20px;
     padding-right: 80px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     padding-left: 80px;
 }
 
@@ -89,9 +99,13 @@
 
 .service-cards {
     width: 380px;
-    height: 605px;
+    height: 598px;
     border-radius: 14px;
     background: #1A1A1A;
+}
+
+.service-link {
+    text-decoration: none;
 }
 
 .service-cards .images {
@@ -101,7 +115,7 @@
 .service-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     padding: 20px;
 }
 
@@ -187,7 +201,7 @@
 }
 
 .ready {
-    background: #0E0E0E;
+    background: #1A1A1A;
     height: 408px;
     display: flex;
     align-items: center;
@@ -240,9 +254,516 @@
     text-decoration: none;
     font-family: "Outfit";
     font-weight: 600;
-    font-style:Bold;
+    font-style: Bold;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
     color: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+    .services-text p {
+        width: 709px;
+    }
+
+    .services-section {
+        padding-inline: 20px;
+        padding-bottom: 40px;
+    }
+
+    .service-cards {
+        width: 360px;
+    }
+
+    .service-cards .images {
+        width: 360px;
+    }
+}
+
+@media screen and (width: 430px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 402px;
+        height: 640px;
+
+    }
+
+    .service-cards .images {
+        width: 402px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 360px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 412px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 382px;
+        height: 640px;
+    }
+
+    .service-cards .images {
+        width: 382px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 340px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 414px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 55px;
+        padding: 15px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 382px;
+        height: 640px;
+    }
+
+    .service-cards .images {
+        width: 382px;
+    }
+
+    .service-info {
+        padding: 20px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 340px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (min-width: 390px) and (max-width: 411px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 45px;
+        padding: 20px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 580px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 320px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (width: 375px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 18px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 340px;
+        height: 580px;
+    }
+
+    .service-cards .images {
+        width: 340px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 320px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .services-container {
+        height: 430px;
+    }
+
+    .services-text h2 {
+        margin-top: 60px;
+    }
+
+    .services-text p {
+        font-size: 16px;
+        width: 320px;
+    }
+
+    .services-section {
+        height: auto;
+        padding-bottom: 45px;
+        padding-inline: 10px;
+    }
+
+    .service-filters {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .service-filters> :nth-child(4),
+    .service-filters> :nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .service-filters> :nth-child(3),
+    .service-filters> :nth-child(5) {
+        width: 88px;
+        font-size: 12px;
+    }
+
+
+    .service-grid {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-cards {
+        width: 328px;
+        height: 557px;
+        margin-left: 7px;
+    }
+
+    .service-cards .images {
+        width: 328px;
+    }
+
+    .service-info {
+        padding: 10px;
+    }
+
+    .service-flex {
+        padding-right: 6px;
+        width: 300px;
+    }
+
+    .ready {
+        height: 380px;
+    }
+
+    .ready-container h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .ready-container p {
+        font-family: 16px;
+        width: 320px;
+    }
+
 }

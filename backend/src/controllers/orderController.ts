@@ -3,6 +3,8 @@ import Stripe from 'stripe';
 import Order from '../models/Order';
 import Product from '../models/Product';
 import dotenv from 'dotenv';
+import { calculateShippingCost, estimateDelivery } from '../services/shippingService';
+import { sendOrderConfirmation, sendAdminNewOrderAlert } from '../services/emailService';
 
 dotenv.config();
 
@@ -10,12 +12,65 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2025-12-15.clover',
 });
 
+// Calculate Checkout Totals (Quote)
+export const calculateQuote = async (req: Request, res: Response) => {
+    try {
+        const { items, country } = req.body;
+
+        let subtotal = 0;
+        let totalWeightGrams = 0;
+        let hasCustomizedItems = false; // Logic to detect custom items if needed (e.g. from Category or Options)
+
+        for (const item of items) {
+            const product = await Product.findById(item.product);
+            if (product) {
+                // Price logic matches createOrder
+                let unitPrice = product.price;
+                if (item.options && product.options) {
+                    for (const [key, value] of Object.entries(item.options)) {
+                        const productOption = product.options.find(opt => opt.name === key);
+                        if (productOption) {
+                            const selectedValue = productOption.values.find(v => v.value === value);
+                            if (selectedValue && selectedValue.price) {
+                                unitPrice = selectedValue.price;
+                            }
+                        }
+                    }
+                }
+                subtotal += unitPrice * item.quantity;
+
+                // Weight Logic
+                // Default to 100g if not specified
+                const itemWeight = product.weight_grams || 100;
+                totalWeightGrams += itemWeight * item.quantity;
+            }
+        }
+
+        const shippingCost = calculateShippingCost(country, totalWeightGrams);
+        const estimatedDelivery = estimateDelivery(country, hasCustomizedItems);
+        const total = subtotal + shippingCost;
+
+        res.json({
+            subtotal,
+            shippingCost,
+            total,
+            estimatedDelivery
+        });
+
+    } catch (error) {
+        console.error('Calculate Quote Error:', error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+
 export const createOrder = async (req: Request, res: Response) => {
     try {
-        const { customer, items, shippingCost } = req.body;
+        const { customer, items } = req.body; // Removed shippingCost from body input, we should recalculate it to be safe? 
+        // For V1 trusting frontend for shippingCost passed might be risky but simple. 
+        // Better: Recalculate everything.
 
-        // 1. Calculate Total Amount Server-Side
         let calculatedTotal = 0;
+        let totalWeightGrams = 0;
         const processedItems = [];
 
         for (const item of items) {
@@ -43,6 +98,7 @@ export const createOrder = async (req: Request, res: Response) => {
             }
 
             calculatedTotal += unitPrice * item.quantity;
+            totalWeightGrams += (product.weight_grams || 100) * item.quantity;
 
             processedItems.push({
                 product: product._id,
@@ -52,6 +108,9 @@ export const createOrder = async (req: Request, res: Response) => {
                 priceAtPurchase: unitPrice
             });
         }
+
+        // Recalculate Shipping to be secure
+        const shippingCost = calculateShippingCost(customer.address.country, totalWeightGrams);
 
         const totalAmount = calculatedTotal + shippingCost;
 
@@ -64,7 +123,8 @@ export const createOrder = async (req: Request, res: Response) => {
             },
             metadata: {
                 customer_email: customer.email,
-                customer_name: customer.name
+                customer_name: customer.name,
+                order_id: '' // Can't have it yet
             }
         });
 
@@ -80,6 +140,15 @@ export const createOrder = async (req: Request, res: Response) => {
         });
 
         const createdOrder = await order.save();
+
+        // Update metadata with order ID
+        await stripe.paymentIntents.update(paymentIntent.id, {
+            metadata: { order_id: createdOrder._id.toString() }
+        });
+
+        // Send Emails (Non-blocking)
+        sendOrderConfirmation(createdOrder).catch(console.error);
+        sendAdminNewOrderAlert(createdOrder).catch(console.error);
 
         res.status(201).json({
             order: createdOrder,
