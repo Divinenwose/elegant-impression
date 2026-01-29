@@ -33,7 +33,7 @@ const Navbar = ({ cartCount }) => {
                         <img src={Bag} alt="cart icon" className="cart-icon" />
                         <span className="cart-badge">{cartCount}</span>
                     </div>
-                    <Link className="bk-btn" to="/contact">Book an Appointment</Link>
+                    <Link className="bk-btn" to="/services">View our Services</Link>
                     <img
                         src={menu}
                         alt="menu"
@@ -57,11 +57,11 @@ const Navbar = ({ cartCount }) => {
                 </ul>
                 <div className="drawer-book">
                     <Link
-                        to="/contact"
+                        to="/services"
                         className="bk-btn"
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        Book an Appointment
+                        View our Services
                     </Link>
                 </div>
             </div>

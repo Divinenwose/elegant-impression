@@ -39,7 +39,7 @@ const Bookings = () => {
                             <input type="tel"
                                 id="phone"
                                 name="Phone"
-                                placeholder="Phone Number"
+                                placeholder="+2345059495904"
                                 pattern="[0-9]{10,15}"
                                 title="Enter a valid phone number with 10–15 digits"
                                 required />
