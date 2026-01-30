@@ -31,7 +31,7 @@ interface OrderData {
     totalAmount: number;
 }
 
-export const sendOrderConfirmation = async (order: OrderData) => {
+export const sendOrderConfirmation = async (order: any) => {
     try {
         console.log(`[EMAIL] Sending confirmation to ${order.customer.email}`);
 
@@ -44,10 +44,10 @@ export const sendOrderConfirmation = async (order: OrderData) => {
                 <p>We have received your order and it is being processed.</p>
                 <h2>Order Summary</h2>
                 <ul>
-                    ${order.items.map(item => `
+                    ${order.items.map((item: any) => `
                         <li>
                             ${item.product.name} x ${item.quantity} - £${item.price.toFixed(2)}
-                            ${item.variant ? `<br><small>${Array.from(item.variant.attributes || []).map(([k, v]) => `${k}: ${v}`).join(', ')}</small>` : ''}
+                            ${item.variant ? `<br><small>${Array.from(item.variant.attributes || []).map(([k, v]: any) => `${k}: ${v}`).join(', ')}</small>` : ''}
                         </li>
                     `).join('')}
                 </ul>
@@ -66,7 +66,7 @@ export const sendOrderConfirmation = async (order: OrderData) => {
     }
 };
 
-export const sendAdminNewOrderAlert = async (order: OrderData) => {
+export const sendAdminNewOrderAlert = async (order: any) => {
     try {
         const adminEmail = process.env.ADMIN_EMAIL || 'admin@elegantimpressions.com';
         await resend.emails.send({
