@@ -165,7 +165,7 @@ select:invalid {
 }
 
 
-.bookings-contact {
+.bookings-contact-container .bookings-contact {
     width: 602px;
     height: 412px;
     display: flex;
@@ -176,7 +176,7 @@ select:invalid {
     background: #1A1A1A;
 }
 
-.contact-text h4 {
+.bookings-contact .contact-text h4 {
     font-family: "Orbitron";
     font-weight: 400;
     font-style: Regular;
@@ -186,13 +186,13 @@ select:invalid {
     color: #EDEDED;
 }
 
-.contact-info {
+.bookings-contact .contact-ifo {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.contact-img {
+.bookings-contact .contact-img {
     width: 40px;
     height: 40px;
     padding: 8px;
