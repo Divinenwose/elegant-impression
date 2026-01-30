@@ -16,6 +16,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 export const calculateQuote = async (req: Request, res: Response) => {
     try {
         const { items, country } = req.body;
+        const shippingCountry = country || 'United Kingdom';
 
         let subtotal = 0;
         let totalWeightGrams = 0;
@@ -46,9 +47,9 @@ export const calculateQuote = async (req: Request, res: Response) => {
             }
         }
 
-        const shippingCost = calculateShippingCost(country, totalWeightGrams);
-        const estimatedDelivery = estimateDelivery(country, hasCustomizedItems);
-        const carrier = getCarrier(country);
+        const shippingCost = calculateShippingCost(shippingCountry, totalWeightGrams);
+        const estimatedDelivery = estimateDelivery(shippingCountry, hasCustomizedItems);
+        const carrier = getCarrier(shippingCountry);
         const total = subtotal + shippingCost;
 
         res.json({
@@ -112,7 +113,8 @@ export const createOrder = async (req: Request, res: Response) => {
         }
 
         // Recalculate Shipping to be secure
-        const shippingCost = calculateShippingCost(customer.address.country, totalWeightGrams);
+        const shippingCountry = customer.address.country || 'United Kingdom';
+        const shippingCost = calculateShippingCost(shippingCountry, totalWeightGrams);
 
         const totalAmount = calculatedTotal + shippingCost;
 
