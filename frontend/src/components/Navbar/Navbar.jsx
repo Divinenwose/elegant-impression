@@ -6,8 +6,17 @@ import Bag from "../../assets/bag.png";
 import CartModal from "../CartModal/CartModal.jsx";
 import menu from "../../assets/menu.png";
 import Close from "../../assets/closebtn.png";
+import { useCart } from "../../context/CartContext";
 
-const Navbar = ({ cartCount }) => {
+const Navbar = () => {
+
+    const { cartItems } = useCart();
+
+    const cartCount = cartItems.reduce(
+        (sum, item) => sum + item.quantity,
+        0
+    );
+    
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
