@@ -1,13 +1,20 @@
+const isUnitedKingdom = (country: string): boolean => {
+    const normalized = country.toLowerCase().trim();
+    return normalized === 'uk' || normalized === 'united kingdom' || normalized === 'great britain' || normalized === 'england';
+};
+
+export const getCarrier = (country: string): string => {
+    return isUnitedKingdom(country) ? 'Royal Mail' : 'DHL/FedEx';
+};
+
 export const calculateShippingCost = (country: string, weightGrams: number): number => {
-    // Normalize country input
-    const normalizedCountry = country.toLowerCase().trim();
-    const isUK = normalizedCountry === 'uk' || normalizedCountry === 'united kingdom' || normalizedCountry === 'great britain';
+    const isUK = isUnitedKingdom(country);
 
     // Convert weight to kg for calculation
     const weightKg = weightGrams / 1000;
 
     if (isUK) {
-        // UK Rates (Placeholder)
+        // UK Rates (Royal Mail Standard)
         // Standard: £3.99 for up to 1kg, then +£1 per kg
         let cost = 3.99;
         if (weightKg > 1) {
@@ -15,11 +22,11 @@ export const calculateShippingCost = (country: string, weightGrams: number): num
         }
         return parseFloat(cost.toFixed(2));
     } else {
-        // International Rates (Placeholder)
-        // Base: £14.99 for up to 1kg, then +£5 per kg
-        let cost = 14.99;
+        // International Rates (DHL/FedEx)
+        // Base: £20.00 (Updated for DHL base) for up to 1kg, then +£10 per kg
+        let cost = 20.00;
         if (weightKg > 1) {
-            cost += Math.ceil(weightKg - 1) * 5.00;
+            cost += Math.ceil(weightKg - 1) * 10.00;
         }
         return parseFloat(cost.toFixed(2));
     }

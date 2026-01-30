@@ -3,7 +3,7 @@ import Stripe from 'stripe';
 import Order from '../models/Order';
 import Product from '../models/Product';
 import dotenv from 'dotenv';
-import { calculateShippingCost, estimateDelivery } from '../services/shippingService';
+import { calculateShippingCost, estimateDelivery, getCarrier } from '../services/shippingService';
 import { sendOrderConfirmation, sendAdminNewOrderAlert } from '../services/emailService';
 
 dotenv.config();
@@ -48,13 +48,15 @@ export const calculateQuote = async (req: Request, res: Response) => {
 
         const shippingCost = calculateShippingCost(country, totalWeightGrams);
         const estimatedDelivery = estimateDelivery(country, hasCustomizedItems);
+        const carrier = getCarrier(country);
         const total = subtotal + shippingCost;
 
         res.json({
             subtotal,
             shippingCost,
             total,
-            estimatedDelivery
+            estimatedDelivery,
+            carrier
         });
 
     } catch (error) {
