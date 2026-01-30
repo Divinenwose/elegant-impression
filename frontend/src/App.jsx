@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from './components/Navbar/Navbar.jsx';
+import HomePage from './Pages/HomePage/Homepage.jsx';
+import Contact from "./Pages/Contact/Contact.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import Services from "./Pages/Services/Services.jsx";
+import ProductPage from "./Pages/Product/Product.jsx";
+import About from "./Pages/About/About.jsx";
+import Gallery from "./Pages/Gallery/Gallery.jsx";
+import ShippingPolicy from "./Pages/Shipping/Shipping.jsx";
+import Terms from "./Pages/Terms/Terms.jsx";
+import Privacy from "./Pages/Privacy/Privacy.jsx";
+import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails.jsx";
+import { services } from "./data/services";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar cartCount={cartCount} />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage setCartCount={setCartCount} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/shipping-policy" element={<ShippingPolicy />} />
+        <Route path="/terms-of-service" element={<Terms />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/services/:slug" element={<ServiceDetails services={services} />}/>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+
+export default App;

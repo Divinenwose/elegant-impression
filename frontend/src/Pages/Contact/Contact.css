@@ -1,0 +1,46 @@
+.contact-container {
+    height: 493px;
+    background: url(/cont.png) no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.contact-container .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #00000080;
+    z-index: 1;
+}
+
+.contact-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+}
+
+.contact-hero h2 {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: #EDEDED;
+}
+
+.contact-hero p {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #B3B3B3;
+}

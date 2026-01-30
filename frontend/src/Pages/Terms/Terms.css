@@ -1,0 +1,23 @@
+.terms-container {
+    height: 1742px;
+    background: #1A1A1A;
+    padding: 130px 20px;
+}
+
+.terms-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.terms-wrapper h2 {
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #EDEDED;
+}
