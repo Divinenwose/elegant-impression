@@ -1,4 +1,5 @@
 const isUnitedKingdom = (country: string): boolean => {
+    if (!country) return false;
     const normalized = country.toLowerCase().trim();
     return normalized === 'uk' || normalized === 'united kingdom' || normalized === 'great britain' || normalized === 'england';
 };
@@ -33,7 +34,7 @@ export const calculateShippingCost = (country: string, weightGrams: number): num
 };
 
 export const estimateDelivery = (country: string, isCustomized: boolean = false): string => {
-    const normalizedCountry = country.toLowerCase().trim();
+    const normalizedCountry = country ? country.toLowerCase().trim() : '';
     const isUK = normalizedCountry === 'uk' || normalizedCountry === 'united kingdom' || normalizedCountry === 'great britain';
 
     let minDays, maxDays;

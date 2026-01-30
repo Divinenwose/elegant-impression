@@ -93,6 +93,17 @@ const seedData = async () => {
     try {
         await connectDB();
 
+        console.log('Fetching existing products to backup images...');
+        const existingProducts = await Product.find({}, 'name images slug');
+        const imageBackup = new Map<string, string[]>();
+
+        existingProducts.forEach(p => {
+            // Backup images by name OR slug if available (for robustness)
+            if (p.name) imageBackup.set(p.name, p.images);
+        });
+
+        console.log(`Backed up images for ${imageBackup.size} products.`);
+
         console.log('Clearing existing data...');
         await Product.deleteMany({});
         await Content.deleteMany({});
@@ -106,6 +117,16 @@ const seedData = async () => {
         const getCatId = (slug: string) => {
             const cat = [...visibleCats, ...hiddenCats].find(c => c.slug === slug);
             return cat?._id;
+        };
+
+        // Helper to generate slug from name
+        const generateSlug = (name: string) => {
+            return name
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/[\s_-]+/g, '-')
+                .replace(/^-+|-+$/g, '');
         };
 
         // Define Products mapped to Categories
@@ -211,7 +232,11 @@ const seedData = async () => {
                     }
                 ]
             }
-        ];
+        ].map(p => ({
+            ...p,
+            slug: generateSlug(p.name),
+            images: imageBackup.get(p.name) || [] // Restore images if found
+        }));
 
         console.log('Seeding Products...');
         await Product.insertMany(products);

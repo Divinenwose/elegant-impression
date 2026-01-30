@@ -46,7 +46,7 @@ export const getProductById = async (req: Request, res: Response) => {
 
 export const createProduct = async (req: Request, res: Response) => {
     try {
-        const { name, description, price, category, isVisible, images, options, stock, weight_grams } = req.body;
+        const { name, description, price, category, isVisible, images, options, stock, weight_grams, slug } = req.body;
 
         // Ensure category exists
         const categoryExists = await Category.findById(category);
@@ -55,7 +55,7 @@ export const createProduct = async (req: Request, res: Response) => {
         }
 
         const product = new Product({
-            name, description, price, category, isVisible, images, options, stock, weight_grams
+            name, description, price, category, isVisible, images, options, stock, weight_grams, slug
         });
         const createdProduct = await product.save();
         res.status(201).json(createdProduct);
@@ -70,6 +70,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 
         if (product) {
             product.name = req.body.name || product.name;
+            product.slug = req.body.slug || product.slug;
             product.description = req.body.description || product.description;
             product.price = req.body.price || product.price;
             product.category = req.body.category || product.category;

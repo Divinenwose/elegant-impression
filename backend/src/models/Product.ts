@@ -33,10 +33,12 @@ export interface IProduct extends Document {
     }[];
     averageRating: number;
     numReviews: number;
+    slug: string;
 }
 
 const ProductSchema: Schema = new Schema({
     name: { type: String, required: true },
+    slug: { type: String, required: true, unique: true },
     description: { type: String },
     price: { type: Number, required: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
