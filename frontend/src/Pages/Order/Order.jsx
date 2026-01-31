@@ -4,17 +4,21 @@ import axios from "axios";
 import arrowLeft from "../../assets/arrow-left.png";
 import { useCart } from "../../context/CartContext";
 import purseIcon from "../../assets/purse.png";
+import secure from "../../assets/secure.png";
+import free from "../../assets/free.png";
+import down from "../../assets/down.png";
 import Footer from "../../components/Footer/Footer.jsx";
 import "./Order.css";
 
 const OrderPage = () => {
   const navigate = useNavigate();
   const { cartItems } = useCart();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shippingPolicy, setShippingPolicy] = useState(""); 
 
-  /* STEP NAV STATE */
+
   const [activeStep, setActiveStep] = useState(1);
 
-  /* SAME TOTALS AS CART MODAL */
   const [totals, setTotals] = useState({
     subtotal: 0,
     shippingCost: 0,
@@ -32,6 +36,8 @@ const OrderPage = () => {
     zip: "",
   });
 
+
+
   const handleInputChange = (e) => {
     setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
   };
@@ -46,7 +52,7 @@ const OrderPage = () => {
 
       try {
         const res = await axios.post("http://localhost:5000/orders/calculate", {
-          items: cartItems.map(item => ({
+          items: cartItems.map((item) => ({
             product: item._id,
             quantity: item.quantity,
           })),
@@ -73,6 +79,19 @@ const OrderPage = () => {
     calculateTotals();
   }, [cartItems]);
 
+  // Fetch shipping policy on mount
+  useEffect(() => {
+    const fetchShippingPolicy = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/content/shipping_policy");
+        setShippingPolicy(res.data.content);
+      } catch (err) {
+        console.error("Error fetching shipping policy:", err);
+      }
+    };
+    fetchShippingPolicy();
+  }, []);
+
   return (
     <div className="order-page">
       <div className="order-container">
@@ -81,7 +100,7 @@ const OrderPage = () => {
           <span>Back to Shop</span>
         </div>
         <div className="page-tracker">
-          {[1, 2, 3].map(step => (
+          {[1, 2, 3].map((step) => (
             <React.Fragment key={step}>
               <span
                 className={activeStep === step ? "active" : ""}
@@ -177,7 +196,7 @@ const OrderPage = () => {
                 <div className="order-summary">
                   <h3>Order Summary</h3>
                   <div className="summary-items">
-                    {cartItems.map(item => (
+                    {cartItems.map((item) => (
                       <div className="summary-item" key={item._id}>
                         <div className="sum-flex">
                           <div className="na">
@@ -190,8 +209,10 @@ const OrderPage = () => {
                           <div className="summary-details">
                             <p className="name">{item.name}</p>
                             <div className="qty">
-                              <p className="qty1">Qty: {item.quantity}</p>
-                              <span>£{totals.subtotal.toFixed(2)}</span>
+                              <p className="qty1">
+                                Qty: {item.quantity}
+                                <span>£{item.price.toFixed(2)}</span>
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -208,13 +229,50 @@ const OrderPage = () => {
                           Shipping: <span>£{totals.shippingCost?.toFixed(2)}</span>
                         </p>
                       </div>
-                      <p className="free-shipping">
-                        Free Shipping on orders over £75
-                      </p>
+                      <p className="free-shipping">Free Shipping on orders over £75</p>
                     </div>
-                    <h3>
-                      Total: <span>£{totals.total.toFixed(2)}</span>
-                    </h3>
+                    <div className="tto">
+                      <h4 className="tal">
+                        Total: <span>£{totals.total.toFixed(2)}</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="order-icons">
+                    <div className="icon1">
+                      <div className="secure">
+                        <img src={secure} alt="" />
+                      </div>
+                      <p>Secure Checkout</p>
+                    </div>
+                    <div className="icon1">
+                      <div className="secure">
+                        <img src={free} alt="" />
+                      </div>
+                      <p>Free Shipping</p>
+                    </div>
+                  </div>
+                  <div className="order-dropdown">
+                    <div
+                      className="shipping-header"
+                      onClick={() => setIsModalOpen(!isModalOpen)}
+                    >
+                      <div className="ship-f">
+                        <div>
+                          <img src={free} alt="" />
+                        </div>
+                        <h3>Shipping Policy</h3>
+                      </div>
+                      <img src={down} className={`arrow ${isModalOpen ? "open" : ""}`} />
+                    </div>
+
+                    {/* Dropdown content */}
+                    {isModalOpen && shippingPolicy && (
+                      <div
+                        className="shipping-content"
+                        id="shipping-policy-content"
+                        dangerouslySetInnerHTML={{ __html: shippingPolicy }}
+                      ></div>
+                    )}
                   </div>
                 </div>
               </div>

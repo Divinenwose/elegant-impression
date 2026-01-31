@@ -100,21 +100,20 @@ const CartModal = ({ onClose }) => {
                     <p>£{item.price.toFixed(2)}</p>
                     <div className="ct">
                       <div className="qty-control">
-                        {/* Decrease quantity */}
                         <button className="qty-btn" onClick={() => decreaseQty(item._id)}>
-                          <img src={minusIcon} alt="Decrease quantity" />
+                          <img className="minus" src={minusIcon} alt="Decrease quantity" />
                         </button>
 
-                        {/* Quantity display */}
+                       
                         <span className="qty-number">{item.quantity}</span>
 
-                        {/* Increase quantity */}
+                        
                         <button className="qty-btn" onClick={() => increaseQty(item._id)}>
                           <img src={plusIcon} alt="Increase quantity" />
                         </button>
                       </div>
 
-                      {/* Remove item */}
+                      
                       <button className="trash" onClick={() => removeItem(item._id)}>
                         <img src={trash} alt="Remove item" />
                       </button>

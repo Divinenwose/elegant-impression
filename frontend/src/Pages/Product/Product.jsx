@@ -152,8 +152,6 @@ const ProductPage = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* PAGINATION */}
                 {totalPages > 1 && (
                     <div className="pagination">
                         <button
