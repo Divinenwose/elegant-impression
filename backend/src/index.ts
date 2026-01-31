@@ -1,16 +1,17 @@
+import dotenv from 'dotenv';
+// Load environment variables immediately
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import connectDB from './config/db';
 import productRoutes from './routes/productRoutes';
 import orderRoutes from './routes/orderRoutes';
 import contentRoutes from './routes/contentRoutes';
+import serviceRoutes from './routes/serviceRoutes';
 import authRoutes from './routes/authRoutes';
 import { errorHandler } from './middleware/errorHandler';
-
-// Load environment variables
-dotenv.config();
 
 // Connect to Database
 connectDB();
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/services', serviceRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/auth', authRoutes);
