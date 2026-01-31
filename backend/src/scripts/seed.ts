@@ -1,30 +1,17 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { parse } from 'csv-parse/sync';
 import Product from '../models/Product';
 import Content from '../models/Content';
 import Category from '../models/Category';
 import connectDB from '../config/db';
+import { uploadImage } from '../services/imageService';
 
 dotenv.config();
 
-const visibleCategories = [
-    { name: 'Bundles', slug: 'bundles', isVisible: true },
-    { name: 'Elegant Hair Stretch Braid Extension', slug: 'stretch-braid', isVisible: true },
-    { name: 'Elegant Hair Deep Wave Braid Extension', slug: 'deep-wave-braid', isVisible: true },
-    { name: 'Elegant Hair 100% Remy Afro Kinky Bulk', slug: 'afro-kinky-bulk', isVisible: true },
-    { name: 'Elegant Hair French Curls Extension', slug: 'french-curls', isVisible: true },
-    { name: 'Elegant Hair Loose Curls Extension', slug: 'loose-curls', isVisible: true },
-    { name: 'Elegant Hair Bone Straight Extension', slug: 'bone-straight', isVisible: true }
-];
-
-const hiddenCategories = [
-    { name: 'Wigs', slug: 'wigs', isVisible: false },
-    { name: 'Human Hair Bundles', slug: 'human-hair-bundles', isVisible: false },
-    { name: 'Hair Care Products', slug: 'hair-care', isVisible: false },
-    { name: 'Hair Accessories', slug: 'accessories', isVisible: false }
-];
-
-// Content Data based on User Request
+// --- Default Content Data ---
 const contents = [
     {
         type: 'shipping_policy',
@@ -89,162 +76,346 @@ const contents = [
     }
 ];
 
+// --- Helpers ---
+
+const cleanPrice = (priceStr: string): number => {
+    if (!priceStr) return 0;
+    const cleaned = priceStr.replace(/[^\d.]/g, '');
+    return parseFloat(cleaned) || 0;
+};
+
+const findAndUploadImages = async (productName: string): Promise<string[]> => {
+    const assetsDir = path.join(__dirname, '../../assets/product_images');
+    if (!fs.existsSync(assetsDir)) {
+        console.warn(`Warning: Assets directory not found at ${assetsDir}`);
+        return [];
+    }
+
+    const allFiles = fs.readdirSync(assetsDir);
+    const extensions = ['.jpg', '.jpeg', '.png', '.webp'];
+    const images: string[] = [];
+
+    // Heuristics for matching
+    const cleanName = productName.replace(/Elegant Hair\s+/i, '').trim();
+    const simpleName = cleanName.replace(/\s+/g, '-').toLowerCase();
+    const nameWithoutExtension_word = cleanName.replace(/Extension/i, '').trim();
+
+    // Spelling fixes
+    const spellingFix = (name: string) => name.replace(/Crotchet/i, 'Crochet').replace(/Crochet/i, 'Crotchet');
+
+    const searchTerms = [
+        cleanName,
+        nameWithoutExtension_word,
+        simpleName,
+        productName,
+        spellingFix(cleanName),
+        spellingFix(productName)
+    ];
+
+    console.log(`Searching images for "${productName}"...`);
+
+    for (const file of allFiles) {
+        const lowerFile = file.toLowerCase();
+        const fileBase = path.parse(file).name;
+
+        if (!extensions.some(ext => lowerFile.endsWith(ext))) continue;
+
+        let match = false;
+        for (const term of searchTerms) {
+            const lowerTerm = term.toLowerCase();
+            const lowerFileBase = fileBase.toLowerCase();
+
+            if (lowerFileBase === lowerTerm) match = true;
+            if (lowerFileBase.startsWith(lowerTerm)) match = true;
+
+            // Fuzzy special cases
+            if (productName.includes("Deep Wave") && lowerFile.includes("deep wave")) match = true;
+            if (productName.includes("Afro Kinky") && lowerFile.includes("afro-kinky")) match = true;
+            if (productName.includes("French Curls") && lowerFile.includes("french curl")) match = true;
+            if (productName.includes("Loose Curls") && lowerFile.includes("loose curl")) match = true;
+            if (productName.includes("Bone Straight") && lowerFile.includes("bone straight")) match = true;
+        }
+
+        if (match) {
+            const filePath = path.join(assetsDir, file);
+            try {
+                console.log(`  > Found match: ${file}`);
+                const url = await uploadImage(filePath, 'products');
+                images.push(url);
+            } catch (e) {
+                console.error(`  > Failed to upload ${file}`, e);
+            }
+        }
+    }
+
+    return [...new Set(images)];
+};
+
+// --- CSV Processors ---
+
+async function processProductCSV(filePath: string) {
+    console.log(`\nImporting PRODUCTS from: ${path.basename(filePath)}`);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const records = parse(fileContent, { relax_column_count: true, skip_empty_lines: true, from_line: 1 });
+
+    const headerRow = records[0];
+    const colorColumns: { index: number, name: string }[] = [];
+    headerRow.forEach((col: string, idx: number) => {
+        if (idx > 3 && col && !col.toLowerCase().includes('specifications')) {
+            colorColumns.push({ index: idx, name: col.trim() });
+        }
+    });
+
+    let currentCategoryName = '';
+    let currentProdName = '';
+    const productsMap = new Map<string, any>();
+
+    console.log(`Parsed ${records.length} records.`);
+
+    for (let i = 1; i < records.length; i++) {
+        const row = records[i];
+        if (row.length < 2) continue;
+
+        const catName = row[0]?.trim();
+        const prodName = row[1]?.trim();
+        const length = row[2]?.trim();
+
+        let productToUpdate = null;
+
+        if (prodName) {
+            currentProdName = prodName;
+            currentCategoryName = catName || currentCategoryName;
+
+            if (!productsMap.has(prodName)) {
+                let category = await Category.findOne({ name: new RegExp(currentCategoryName || 'General', 'i') });
+                if (!category) {
+                    const catName = currentCategoryName || 'General';
+                    category = await Category.create({ name: catName, slug: catName.toLowerCase().replace(/\s+/g, '-') });
+                }
+
+                // Initial Product Object
+                productToUpdate = {
+                    name: prodName,
+                    slug: prodName.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-'),
+                    description: row[row.length - 1] || '',
+                    price: 9999, // placeholder
+                    category: category?._id,
+                    variants: [],
+                    images: await findAndUploadImages(prodName),
+                    hasMatrix: true,
+                    type: 'physical',
+                    isVisible: true,
+                    content: ''
+                };
+                productsMap.set(prodName, productToUpdate);
+            } else {
+                productToUpdate = productsMap.get(prodName);
+            }
+        } else if (currentProdName && length) {
+            productToUpdate = productsMap.get(currentProdName);
+        }
+
+        if (productToUpdate && length) {
+            for (const col of colorColumns) {
+                const priceStr = row[col.index];
+                if (priceStr) {
+                    const price = cleanPrice(priceStr);
+                    if (price > 0) {
+                        productToUpdate.variants.push({
+                            attributes: new Map(Object.entries({
+                                Length: length,
+                                Color: col.name
+                            })),
+                            price: price,
+                            stock: 100,
+                            sku: `${productToUpdate.name}-${length}-${col.name}`.replace(/[\s\/]+/g, '-').toUpperCase()
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    // Save
+    for (const [name, pData] of productsMap) {
+        if (pData.variants.length > 0) {
+            pData.price = Math.min(...pData.variants.map((v: any) => v.price));
+        }
+
+        // Ensure unique slug
+        let slug = pData.slug;
+        let counter = 1;
+        while (await Product.findOne({ slug })) {
+            slug = `${pData.slug}-${counter}`;
+            counter++;
+        }
+        pData.slug = slug;
+
+        await Product.create(pData);
+        console.log(`Saved Product: ${name} (${pData.variants.length} variants) - Slug: ${slug}`);
+    }
+}
+
+async function processServiceCSV(filePath: string) {
+    console.log(`\nImporting SERVICES from: ${path.basename(filePath)}`);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const records = parse(fileContent, { relax_column_count: true, skip_empty_lines: true });
+
+    let currentCategoryName = 'Services';
+    let category: any = null;
+
+    // Linear Scan
+    for (let i = 0; i < records.length; i++) {
+        const row = records[i];
+
+        // Detect Category Block
+        if (row[1] && row[1].startsWith('Services Under')) {
+            currentCategoryName = row[1].replace('Services Under', '').trim();
+            // Find/Create specific service category
+            category = await Category.findOne({ name: new RegExp(currentCategoryName, 'i') });
+            if (!category) {
+                category = await Category.create({ name: currentCategoryName, slug: currentCategoryName.toLowerCase().replace(/\s+/g, '-') });
+            }
+            continue;
+        }
+
+        // Header Check
+        if (row[2] === 'Length' && row[5] === 'Price') continue;
+
+        // Data Check
+        const serviceName = row[1]?.trim();
+        const length = row[2]?.trim();
+        const sizeStr = row[3]?.trim();
+        const priceStr = row[5]?.trim();
+
+        if (serviceName && length && sizeStr && priceStr) {
+            const sizes = sizeStr.split(',').map((s: string) => s.trim());
+            const prices = priceStr.split(',').map((s: string) => cleanPrice(s));
+
+            // Find or Create Product (Service)
+            let service = await Product.findOne({ name: serviceName, type: 'service' });
+
+            if (!service) {
+                // Ensure default category if we haven't hit a block yet
+                if (!category) {
+                    category = await Category.findOne({ name: 'Services' });
+                    if (!category) category = await Category.create({ name: 'Services', slug: 'services' });
+                }
+
+                // Create temporary object to verify data and slug
+                const tempService = {
+                    name: serviceName,
+                    slug: serviceName.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-'),
+                    description: `Professional ${serviceName} service`,
+                    category: category._id,
+                    variants: [] as any[],
+                    images: await findAndUploadImages(serviceName),
+                    hasMatrix: true,
+                    type: 'service',
+                    isVisible: true,
+                    content: ''
+                };
+                // Ensure unique slug
+                let slug = tempService.slug;
+                let counter = 1;
+                while (await Product.findOne({ slug })) {
+                    slug = `${tempService.slug}-${counter}`;
+                    counter++;
+                }
+                tempService.slug = slug;
+
+                // Create variants for new service
+                for (let j = 0; j < sizes.length; j++) {
+                    const s = sizes[j];
+                    const priceIndex = Math.min(j, prices.length - 1);
+                    const finalPrice = prices[priceIndex] || prices[0];
+                    if (s && finalPrice > 0) {
+                        tempService.variants.push({
+                            attributes: new Map(Object.entries({ Length: length, Size: s })),
+                            price: finalPrice,
+                            stock: 999,
+                            sku: `${serviceName}-${length}-${s}`.replace(/[\s\/]+/g, '-').toUpperCase()
+                        });
+                    }
+                }
+
+                // Calculate base price
+                if (tempService.variants.length > 0) {
+                    (tempService as any).price = Math.min(...tempService.variants.map((v: any) => v.price));
+                } else {
+                    (tempService as any).price = 0;
+                }
+
+                service = await Product.create(tempService);
+                console.log(`Created Service: ${serviceName}`);
+            } else {
+                // Existing service, just add variants
+                const newVariants: any[] = [];
+                for (let j = 0; j < sizes.length; j++) {
+                    const s = sizes[j];
+                    const priceIndex = Math.min(j, prices.length - 1);
+                    const finalPrice = prices[priceIndex] || prices[0];
+                    if (s && finalPrice > 0) {
+                        newVariants.push({
+                            attributes: new Map(Object.entries({ Length: length, Size: s })),
+                            price: finalPrice,
+                            stock: 999,
+                            sku: `${serviceName}-${length}-${s}`.replace(/[\s\/]+/g, '-').toUpperCase()
+                        });
+                    }
+                }
+
+                await Product.findOneAndUpdate(
+                    { name: serviceName, type: 'service' },
+                    {
+                        // Don't change slug or other props, maybe update price if lower?
+                        // Keep it simple.
+                        $addToSet: { variants: { $each: newVariants } }
+                    },
+                    { upsert: true, new: true }
+                );
+            }
+            console.log(`Updated Service: ${serviceName}`);
+        }
+    }
+}
+
+
+// --- Main ---
+
 const seedData = async () => {
     try {
         await connectDB();
-
-        console.log('Fetching existing products to backup images...');
-        const existingProducts = await Product.find({}, 'name images slug');
-        const imageBackup = new Map<string, string[]>();
-
-        existingProducts.forEach(p => {
-            // Backup images by name OR slug if available (for robustness)
-            if (p.name) imageBackup.set(p.name, p.images);
-        });
-
-        console.log(`Backed up images for ${imageBackup.size} products.`);
-
-        console.log('Clearing existing data...');
+        console.log('--- CLEAN SEED STARTED ---');
+        console.log('Clearing ALL existing data...');
         await Product.deleteMany({});
         await Content.deleteMany({});
         await Category.deleteMany({});
 
-        console.log('Seeding Categories...');
-        const visibleCats = await Category.insertMany(visibleCategories);
-        const hiddenCats = await Category.insertMany(hiddenCategories);
+        const assetsDir = path.join(__dirname, '../../assets');
+        const productsDir = path.join(assetsDir, 'Product_CSV');
+        const servicesDir = path.join(assetsDir, 'Services_CSV');
 
-        // Helper to find category ID
-        const getCatId = (slug: string) => {
-            const cat = [...visibleCats, ...hiddenCats].find(c => c.slug === slug);
-            return cat?._id;
-        };
-
-        // Helper to generate slug from name
-        const generateSlug = (name: string) => {
-            return name
-                .toLowerCase()
-                .trim()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/[\s_-]+/g, '-')
-                .replace(/^-+|-+$/g, '');
-        };
-
-        // Define Products mapped to Categories
-        // Note: Mapping products to specific categories based on name
-        const products = [
-            {
-                name: 'Elegant Hair Stretch Braid Extension',
-                description: 'High quality stretch braid extension.',
-                price: 6.99,
-                category: getCatId('stretch-braid'),
-                isVisible: true,
-                images: [],
-                stock: 100,
-                options: []
-            },
-            {
-                name: 'Elegant Hair Deep Wave Braid Extension',
-                description: 'Deep wave texture for a stunning look.',
-                price: 7.99,
-                category: getCatId('deep-wave-braid'),
-                isVisible: true,
-                images: [],
-                stock: 100,
-                options: []
-            },
-            {
-                name: 'Elegant Hair French Curls Extension',
-                description: 'Beautiful French curls.',
-                price: 7.99,
-                category: getCatId('french-curls'),
-                isVisible: true,
-                images: [],
-                stock: 100,
-                options: []
-            },
-            {
-                name: 'Elegant Hair Loose Curls Extension',
-                description: 'Bouncy loose curls.',
-                price: 7.99,
-                category: getCatId('loose-curls'),
-                isVisible: true,
-                images: [],
-                stock: 100,
-                options: []
-            },
-            {
-                name: 'Elegant Hair Bone Straight Extension',
-                description: 'Sleek and smooth bone straight hair.',
-                price: 7.99,
-                category: getCatId('bone-straight'),
-                isVisible: true,
-                images: [],
-                stock: 100,
-                options: [
-                    {
-                        name: 'Length',
-                        values: [
-                            { value: '24 inches', price: 7.99 },
-                            { value: '28 inches', price: 8.99 },
-                            { value: '30 inches', price: 10.99 }
-                        ]
-                    }
-                ]
-            },
-            {
-                name: 'Elegant Hair 100% Remy Afro Kinky Bulk',
-                description: 'Premium 100% Remy Afro Kinky hair.',
-                price: 32.99,
-                category: getCatId('afro-kinky-bulk'),
-                isVisible: true,
-                images: [],
-                stock: 50,
-                options: [
-                    {
-                        name: 'Length',
-                        values: [
-                            { value: '12 inches', price: 32.99 },
-                            { value: '14 inches', price: 34.99 },
-                            { value: '16 inches', price: 36.99 },
-                            { value: '18 inches', price: 38.99 },
-                            { value: '20 inches', price: 40.99 },
-                            { value: '22 inches', price: 42.99 }
-                        ]
-                    }
-                ]
-            },
-            // Hidden Product Example
-            {
-                name: 'Elegant Hand Made Feather Hair',
-                description: 'Hand made feather hair.',
-                price: 79.99,
-                category: getCatId('wigs'),
-                isVisible: false,
-                images: [],
-                stock: 20,
-                options: [
-                    {
-                        name: 'Length',
-                        values: [
-                            { value: '14 inches', price: 79.99 },
-                            { value: '16 inches', price: 86.99 }
-                        ]
-                    }
-                ]
+        // Import Products
+        if (fs.existsSync(productsDir)) {
+            const files = fs.readdirSync(productsDir).filter(f => f.endsWith('.csv'));
+            for (const file of files) {
+                await processProductCSV(path.join(productsDir, file));
             }
-        ].map(p => ({
-            ...p,
-            slug: generateSlug(p.name),
-            images: imageBackup.get(p.name) || [] // Restore images if found
-        }));
+        }
 
-        console.log('Seeding Products...');
-        await Product.insertMany(products);
+        // Import Services
+        if (fs.existsSync(servicesDir)) {
+            const files = fs.readdirSync(servicesDir).filter(f => f.endsWith('.csv'));
+            for (const file of files) {
+                await processServiceCSV(path.join(servicesDir, file));
+            }
+        }
 
         console.log('Seeding Content...');
         await Content.insertMany(contents);
 
-        console.log('Data Seeding Complete!');
+        console.log('--- CLEAN SEED COMPLETE ---');
         process.exit();
     } catch (error) {
         console.error('Error with data seeding', error);

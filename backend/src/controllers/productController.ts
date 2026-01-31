@@ -4,9 +4,13 @@ import Category from '../models/Category';
 
 export const getProducts = async (req: Request, res: Response) => {
     try {
-        const { category, includeHidden } = req.query;
+        const { category, includeHidden, type } = req.query;
 
         let query: any = {};
+
+        if (type) {
+            query.type = type;
+        }
 
         if (category) {
             // Find category by slug (or name) first if passed as string
@@ -146,4 +150,9 @@ export const createProductReview = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(400).json({ message: 'Error adding review', error });
     }
+};
+
+export const getServices = async (req: Request, res: Response) => {
+    req.query.type = 'service';
+    return getProducts(req, res);
 };
