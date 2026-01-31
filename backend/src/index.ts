@@ -11,6 +11,7 @@ import orderRoutes from './routes/orderRoutes';
 import contentRoutes from './routes/contentRoutes';
 import serviceRoutes from './routes/serviceRoutes';
 import authRoutes from './routes/authRoutes';
+import contactRoutes from './routes/contactRoutes';
 import { errorHandler } from './middleware/errorHandler';
 
 // Connect to Database
@@ -29,6 +30,7 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Basic Route
 app.get('/', (req, res) => {

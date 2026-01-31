@@ -84,3 +84,28 @@ export const sendAdminNewOrderAlert = async (order: any) => {
         console.error('[EMAIL] Admin Alert Error:', err);
     }
 };
+
+export const sendContactFormEmail = async (data: { name: string; email: string; phone: string; service: string; message: string }) => {
+    try {
+        const adminEmail = process.env.ADMIN_EMAIL || 'admin@elegantimpressions.com';
+        await resend.emails.send({
+            from: 'Elegant Impressions Contact <contact@elegantimpressions.com>',
+            to: [adminEmail],
+            replyTo: data.email,
+            subject: `New Contact Form Submission: ${data.service}`,
+            html: `
+                <h1>New Contact Form Submission</h1>
+                <p><strong>Name:</strong> ${data.name}</p>
+                <p><strong>Email:</strong> ${data.email}</p>
+                <p><strong>Phone:</strong> ${data.phone}</p>
+                <p><strong>Desired Service:</strong> ${data.service}</p>
+                <h2>Message:</h2>
+                <p>${data.message}</p>
+            `
+        });
+        console.log(`[EMAIL] Sent contact form from ${data.email}`);
+    } catch (err) {
+        console.error('[EMAIL] Contact Form Error:', err);
+        throw err;
+    }
+};
