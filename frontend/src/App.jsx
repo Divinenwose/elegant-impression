@@ -12,6 +12,8 @@ import ShippingPolicy from "./Pages/Shipping/Shipping.jsx";
 import Terms from "./Pages/Terms/Terms.jsx";
 import Privacy from "./Pages/Privacy/Privacy.jsx";
 import ServiceDetails from "./Pages/ServiceDetails/ServiceDetails.jsx";
+import OrderPage from "./Pages/Order/Order.jsx";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails.jsx";
 import { services } from "./data/services";
 
 function App() {
@@ -31,7 +33,9 @@ function App() {
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/terms-of-service" element={<Terms />} />
         <Route path="/privacy-policy" element={<Privacy />} />
-        <Route path="/services/:slug" element={<ServiceDetails services={services} />}/>
+        <Route path="/orders" element={<OrderPage />} />
+         <Route path="/products/:slug" element={<ProductDetails />} />
+        <Route path="/services/:slug" element={<ServiceDetails services={services} />} />
       </Routes>
     </>
   );

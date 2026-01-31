@@ -10,7 +10,7 @@ const Bookings = () => {
         <div className="bookings">
             <h2>Book Your Appointment</h2>
             <div className="bookings-container">
-                <div className="bookings-message">
+                <div className="bookings-message"> 
                     <div className="message-text">
                         <h4>Send Us a Message</h4>
                         <p>Have questions or need assistance? Our team is always ready to guide you on your journey.</p>
@@ -72,7 +72,7 @@ const Bookings = () => {
                         <div className="contact-text">
                             <h4>Contact Information</h4>
                         </div>
-                        <div className="contact-info">
+                        <div className="contact-ifo">
                             <div className="contact-img">
                                 <img src={locationcon} alt="" />
                             </div>
@@ -81,7 +81,7 @@ const Bookings = () => {
                                 <p>27 A Rea street, Digbeth B5 6LB </p>
                             </div>
                         </div>
-                        <div className="contact-info">
+                        <div className="contact-ifo">
                             <div className="contact-img">
                                 <img src={call} alt="" />
                             </div>
@@ -90,7 +90,7 @@ const Bookings = () => {
                                 <p>+447831331434 </p>
                             </div>
                         </div>
-                        <div className="contact-info">
+                        <div className="contact-ifo">
                             <div className="contact-img">
                                 <img src={sms} alt="" />
                             </div>
@@ -99,7 +99,7 @@ const Bookings = () => {
                                 <p>2justelegantimpressions@gmail.com </p>
                             </div>
                         </div>
-                        <div className="contact-info">
+                        <div className="contact-ifo">
                             <div className="contact-clock-img">
                                 <img src={clock} alt="" />
                             </div>

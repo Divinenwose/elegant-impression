@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+
 
 
 
@@ -7,7 +9,7 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   font-family: "Playfair Display", "Inter", "Outfit", "Plus Jakarta Sans", "Orbitron", sans-serif;
+   font-family: "Playfair Display", "Inter", "Outfit", "Plus Jakarta Sans", "Orbitron", "Cormorant" sans-serif;
  }
 
  body,

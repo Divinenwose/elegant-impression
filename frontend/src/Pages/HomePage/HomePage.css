@@ -277,7 +277,7 @@
     padding-bottom: 12px;
     padding-left: 14px;
     text-decoration: none;
-    border: 1px solid #E69500;
+    border: 1px solid #D4AF37;
     background: transparent;
     font-family: "Inter";
     font-weight: 600;
@@ -453,7 +453,7 @@
 }
 
 .card2 {
-    height: 464px;
+    height: 404px;
     border-radius: 14px;
     background: #000000;
 }
@@ -461,6 +461,7 @@
 
 .card2 img {
     width: 288px;
+    height: 240px;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
 }
@@ -786,7 +787,7 @@
     color: #EDEDED;
 }
 
-@media screen and (min-width: 768px) and (max-width: 900px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .hero-container {
         padding: 20px;
     }
@@ -800,7 +801,7 @@
     }
 
     .home-services {
-        height: 1270px;
+        height: auto;
     }
 
     .home-services-card {
@@ -809,12 +810,12 @@
     }
 
     .card1 {
-        width: 350px;
-        height: 480px;
+        width: 100%;
+        height: 100%;
     }
 
     .card1 img {
-        width: 350px;
+        width: 100%;
     }
 
     .why {
@@ -827,19 +828,20 @@
     }
 
     .shop {
-        height: 1370px;
+        height: auto;
     }
 
     .shop-card {
-        grid-template-columns: repeat(2, 300px);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 
     .card2 {
-        height: 470px;
+        height: 100%;
     }
 
     .card2 img {
-        width: 300px;
+        width: 100%;
     }
 
     .shop-price {
